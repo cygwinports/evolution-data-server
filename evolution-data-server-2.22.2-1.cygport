@@ -1,0 +1,39 @@
+inherit gnome2
+
+DESCRIPTION="GNOME Evolution data server and libraries"
+HOMEPAGE="http://www.gnome.org/projects/evolution/"
+
+PKG_NAMES="${PN} ${PN}-devel"
+PKG_HINTS="setup devel"
+PKG_CONTENTS[0]="--exclude=gtk-doc --exclude=idl
+                 usr/bin/ usr/lib/bonobo/ usr/lib/${PN}-1.2/ usr/share/"
+PKG_CONTENTS[1]="usr/include/ usr/lib/lib* usr/lib/pkgconfig/
+                 usr/share/gtk-doc/ usr/share/idl/"
+
+CPPFLAGS+=" -Dtimezonevar"
+CYGCONF_ARGS="
+	--libexecdir=/usr/lib/evolution-data-server-1.2
+	--disable-dot-locking --disable-file-locking
+	--disable-glibtest
+	--disable-ipv6
+	--enable-gnome-keyring
+	--enable-nntp
+	--enable-nss --enable-smime
+	--with-krb5=/usr
+	--with-krb5-includes=/usr/include/heimdal
+	--with-krb5-libs=/usr/lib/heimdal
+	--with-libdb=/usr
+	--with-nspr-includes=/usr/include/nspr
+	--with-nspr-libs=/usr/lib/nspr
+	--with-nss-includes=/usr/include/nss
+	--with-nss-libs=/usr/lib/nss
+	--with-openldap
+	--without-krb4
+"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	rename libcam cygcam ${D}/usr/lib/evolution-data-server-1.2/camel-providers/*.urls
+}
