@@ -1,0 +1,11 @@
+--- origsrc/evolution-data-server-2.24.2/configure.in	2008-12-14 02:26:03.415765700 -0600
++++ src/evolution-data-server-2.24.2/configure.in	2008-12-14 04:47:43.697015700 -0600
+@@ -1645,7 +1645,7 @@
+ AC_SUBST(weatherdatadir)
+ 
+ dnl separate camel from e-d-s?  or should it be under the same spot?  same for now.
+-camel_providerdir='${libdir}'/evolution-data-server-$API_VERSION/camel-providers
++camel_providerdir='${libdir}'/evolution-data-server-$API_VERSION/camel-providers-`expr $LIBCAMEL_CURRENT - $LIBCAMEL_AGE`
+ AC_SUBST(camel_providerdir)
+ 
+ dnl ************************

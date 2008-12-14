@@ -1,0 +1,5 @@
+category: Gnome Mail
+requires: cygwin libgdata1.2_1 libglib2.0_0 libsoup2.4_1
+external-source: evolution-data-server
+sdesc: "GNOME Evolution Google library (runtime)"
+ldesc: "GNOME Evolution backend server and libraries"

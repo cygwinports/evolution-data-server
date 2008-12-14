@@ -1,0 +1,126 @@
+--- origsrc/evolution-data-server-2.24.2/camel/camel-file-utils.h	2008-10-13 03:07:53.000000000 -0500
++++ src/evolution-data-server-2.24.2/camel/camel-file-utils.h	2008-12-14 02:14:42.431390700 -0600
+@@ -31,6 +31,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <time.h>
++#include <sys/time.h>
+ #include <fcntl.h>
+ 
+ #ifndef O_BINARY
+--- origsrc/evolution-data-server-2.24.2/camel/camel-net-utils.c	2008-10-13 03:07:53.000000000 -0500
++++ src/evolution-data-server-2.24.2/camel/camel-net-utils.c	2008-12-14 02:14:42.493890700 -0600
+@@ -28,6 +28,8 @@
+ #include <errno.h>
+ #include <pthread.h>
+ #include <stdio.h>
++#include <string.h>
++#include <netinet/in.h>
+ 
+ #include <glib.h>
+ #include <glib/gi18n-lib.h>
+@@ -58,6 +60,9 @@
+ #undef gai_strerror
+ #define gai_strerror my_gai_strerror
+ 
++#endif
++
++#ifdef G_PLATFORM_WIN32
+ /* gai_strerror() is implemented as an inline function in Microsoft's
+  * SDK, but mingw lacks that. So implement here. The EAI_* errors can
+  * be handled with the normal FormatMessage() API,
+@@ -67,7 +72,11 @@
+ static const char *
+ gai_strerror (int error_code)
+ {
++#ifdef G_WITH_CYGWIN
++	gchar *msg = g_strerror (error_code);
++#else
+ 	gchar *msg = g_win32_error_message (error_code);
++#endif
+ 	GQuark quark = g_quark_from_string (msg);
+ 	const gchar *retval = g_quark_to_string (quark);
+ 
+--- origsrc/evolution-data-server-2.24.2/camel/camel-tcp-stream.h	2008-10-13 03:07:53.000000000 -0500
++++ src/evolution-data-server-2.24.2/camel/camel-tcp-stream.h	2008-12-14 02:14:42.525140700 -0600
+@@ -39,6 +39,7 @@
+ #include <unistd.h>
+ 
+ #include <camel/camel-stream.h>
++#include <camel/camel-net-utils.h>
+ 
+ #define CAMEL_TCP_STREAM_TYPE     (camel_tcp_stream_get_type ())
+ #define CAMEL_TCP_STREAM(obj)     (CAMEL_CHECK_CAST((obj), CAMEL_TCP_STREAM_TYPE, CamelTcpStream))
+--- origsrc/evolution-data-server-2.24.2/camel/providers/smtp/camel-smtp-transport.c	2008-10-13 03:07:20.000000000 -0500
++++ src/evolution-data-server-2.24.2/camel/providers/smtp/camel-smtp-transport.c	2008-12-14 02:14:42.572015700 -0600
+@@ -991,9 +991,11 @@
+ 	if (camel_getnameinfo (addr, addrlen, &name, NULL, NI_NUMERICHOST, NULL) != 0) {
+ 		name = g_strdup ("localhost.localdomain");
+ 	} else {
++#ifdef AF_INET6
+ 		if (addr->sa_family == AF_INET6)
+ 			numeric = "IPv6:";
+ 		else
++#endif
+ 			numeric = "";
+ 	}
+ 
+--- origsrc/evolution-data-server-2.24.2/libedataserver/e-proxy.c	2008-11-06 22:34:23.000000000 -0600
++++ src/evolution-data-server-2.24.2/libedataserver/e-proxy.c	2008-12-14 02:36:27.540765700 -0600
+@@ -98,9 +98,11 @@
+ 					 GConfEntry *entry, gpointer user_data);
+ static void 	e_proxy_dispose 	(GObject* object);
+ 
++#ifdef AF_INET6
+ static void 	ipv6_network_addr	(const struct in6_addr *addr, 
+ 					 const struct in6_addr *mask,
+ 					 struct in6_addr *res);
++#endif
+ 
+ static void
+ ep_free_proxy_host_addr (ProxyHostAddr* host)
+@@ -265,6 +267,7 @@
+ 					}
+ 				}
+ 			}
++#ifdef AF_INET6
+ 		} else {
+ 			struct in6_addr in6, net6;
+ 			struct in_addr *addr_in, *mask;
+@@ -295,6 +298,7 @@
+ 					}
+ 				}
+ 			}
++#endif
+ 		}
+ 	} else {
+ 		GSList* l;
+@@ -356,6 +360,7 @@
+ 	return has_error;
+ }
+ 
++#ifdef AF_INET6
+ static void
+ ipv6_network_addr(const struct in6_addr *addr, const struct in6_addr *mask,
+                   struct in6_addr *res)
+@@ -413,6 +418,7 @@
+ 
+ 	return has_error;
+ }
++#endif
+ 
+ static void
+ ep_parse_ignore_host (gpointer data, gpointer user_data)
+@@ -458,10 +464,12 @@
+ 			has_error = ep_manipulate_ipv4 (host_addr, 
+ 							&((struct sockaddr_in *)so_addr)->sin_addr, 
+ 							netmask);
++#ifdef AF_INET6
+ 		else	
+ 			has_error = ep_manipulate_ipv6 (host_addr, 
+ 							&((struct sockaddr_in6 *)so_addr)->sin6_addr, 
+ 							netmask);
++#endif
+ 		
+ 		if (!has_error)
+ 			priv->ign_addrs = g_slist_append (priv->ign_addrs, host_addr);

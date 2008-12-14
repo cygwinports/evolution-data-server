@@ -1,0 +1,5 @@
+category: Gnome Mail
+requires: cygwin libbonobo2_0 libedataserver1.2_11 libgconf2_4 libglib2.0_0 libORBit2_0
+external-source: evolution-data-server
+sdesc: "GNOME Evolution backend  library (runtime)"
+ldesc: "GNOME Evolution backend server and libraries"

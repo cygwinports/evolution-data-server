@@ -1,0 +1,115 @@
+--- origsrc/evolution-data-server-2.24.2/calendar/backends/caldav/Makefile.am	2008-10-13 03:08:29.000000000 -0500
++++ src/evolution-data-server-2.24.2/calendar/backends/caldav/Makefile.am	2008-12-14 02:14:42.415765700 -0600
+@@ -27,4 +27,4 @@
+ 
+ 
+ libecalbackendcaldav_la_LDFLAGS =		\
+-	-module -avoid-version
++	-module -avoid-version $(NO_UNDEFINED)
+--- origsrc/evolution-data-server-2.24.2/camel/providers/sendmail/Makefile.am	2008-10-13 03:07:37.000000000 -0500
++++ src/evolution-data-server-2.24.2/camel/providers/sendmail/Makefile.am	2008-12-14 02:14:42.525140700 -0600
+@@ -21,7 +21,13 @@
+ noinst_HEADERS =		\
+ 	camel-sendmail-transport.h
+ 
+-libcamelsendmail_la_LDFLAGS = -avoid-version -module
++libcamelsendmail_la_LDFLAGS = -avoid-version -module $(NO_UNDEFINED)
++
++libcamelsendmail_la_LIBADD = \
++	$(top_builddir)/libedataserver/libedataserver-${API_VERSION}.la \
++	$(top_builddir)/camel/libcamel-provider-1.2.la          \
++	$(top_builddir)/camel/libcamel-1.2.la               \
++	$(CAMEL_LIBS)
+ 
+ libcamelsendmail_la_LIBADD = \
+ 	$(top_builddir)/camel/libcamel-1.2.la				\
+--- origsrc/evolution-data-server-2.24.2/configure.in	2008-11-12 00:27:34.000000000 -0600
++++ src/evolution-data-server-2.24.2/configure.in	2008-12-14 02:14:42.759515700 -0600
+@@ -199,29 +199,46 @@
+ 
+ AC_MSG_CHECKING([for Win32])
+ case "$host" in
++*-cygwin*)
++    platform_win32=yes
++    os_win32=no
++    NO_UNDEFINED='-no-undefined'
++    SOCKET_LIBS=''
++    DL_LIB=''
++    SOFTOKN3_LIB=''
++    LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
++    SOPREFIX=cyg
++    ;;
+ *-mingw*)
++    platform_win32=yes
+     os_win32=yes
+     NO_UNDEFINED='-no-undefined'
+     SOCKET_LIBS='-lws2_32 -ldnsapi'
+     DL_LIB=''
+     SOFTOKN3_LIB=''
+     LIBEXECDIR_IN_SERVER_FILE='../../../libexec'
++    SOPREFIX=lib
+     AC_CACHE_VAL(have_addrinfo, [have_addrinfo=yes])
+     AC_DEFINE(_WIN32_WINNT, 0x501, [To get getaddrinfo etc declarations])
+     ;;
+-*)  os_win32=no
++*)
++    platform_win32=no
++    os_win32=no
+     NO_UNDEFINED=''
+     SOCKET_LIBS=''
+     DL_LIB='-ldl'
+     SOFTOKN3_LIB='-lsoftokn3'
+     LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
++    SOPREFIX=lib
+     ;;
+ esac
+ AC_MSG_RESULT([$os_win32])
++AM_CONDITIONAL(PLATFORM_WIN32, [test $platform_win32 = yes])
+ AM_CONDITIONAL(OS_WIN32, [test $os_win32 = yes])
+ AC_SUBST(NO_UNDEFINED)
+ AC_SUBST(SOCKET_LIBS)
+ AC_SUBST(LIBEXECDIR_IN_SERVER_FILE)
++AC_SUBST(SOPREFIX)
+ 
+ AC_CHECK_HEADERS(pthread.h semaphore.h sys/wait.h)
+ AC_CHECK_FUNCS(fsync strptime strtok_r)
+--- origsrc/evolution-data-server-2.24.2/servers/exchange/storage/Makefile.am	2008-10-13 03:08:08.000000000 -0500
++++ src/evolution-data-server-2.24.2/servers/exchange/storage/Makefile.am	2008-12-14 02:14:42.775140700 -0600
+@@ -1,6 +1,6 @@
+ # Fix the code to not use E_DATA_SERVER_UI_CFLAGS
+ 
+-if OS_WIN32
++if PLATFORM_WIN32
+ WIN32_BOOTSTRAP_LIBS =					\
+ 	$(top_builddir)/win32/libedataserverui-1.2.la
+ endif
+@@ -20,6 +20,7 @@
+ 	$(E_DATA_SERVER_UI_CFLAGS)				\
+ 	-I$(top_builddir)/servers/exchange/lib			\
+ 	-I$(top_srcdir)						\
++	-I$(top_builddir)/servers/exchange/lib			\
+ 	-I$(top_srcdir)/servers/exchange/lib			\
+ 	-I$(top_srcdir)/servers/exchange/xntlm
+ 
+--- origsrc/evolution-data-server-2.24.2/win32/Makefile.am	2008-10-13 03:08:25.000000000 -0500
++++ src/evolution-data-server-2.24.2/win32/Makefile.am	2008-12-14 02:14:42.822015700 -0600
+@@ -2,7 +2,7 @@
+ 	dummy.la			\
+ 	libedataserverui.def
+ 
+-if OS_WIN32
++if PLATFORM_WIN32
+ BOOTSTRAP_LIBS =			\
+ 	libedataserverui-1.2.la
+ endif
+@@ -12,8 +12,8 @@
+ libedataserverui_current_minus_age = `expr $(LIBEDATASERVERUI_CURRENT) - $(LIBEDATASERVERUI_AGE)`
+ 
+ libedataserverui-1.2.la: dummy.la libedataserverui.def
+-	sed -e s!%DLL%!libedataserverui-1.2-$(libedataserverui_current_minus_age)! -e s!%LIB%!libedataserverui-1.2! -e s!%PFX%!$(prefix)! <dummy.la >$@
++	sed -e s!%DLL%!$(SOPREFIX)edataserverui-1.2-$(libedataserverui_current_minus_age)! -e s!%LIB%!libedataserverui-1.2! -e s!%PFX%!$(prefix)! < $(srcdir)/dummy.la >$@
+ 	mkdir -p .libs
+-	dlltool --output-lib=.libs/libedataserverui-1.2.dll.a --dllname=libedataserverui-1.2-$(libedataserverui_current_minus_age).dll --input-def=libedataserverui.def
++	dlltool --output-lib=.libs/libedataserverui-1.2.dll.a --dllname=$(SOPREFIX)edataserverui-1.2-$(libedataserverui_current_minus_age).dll --input-def=$(srcdir)/libedataserverui.def
+ 
+ CLEANFILES = $(BOOTSTRAP_LIBS)

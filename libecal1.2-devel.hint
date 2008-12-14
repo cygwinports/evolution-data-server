@@ -1,0 +1,5 @@
+category: Gnome Mail
+requires: cygwin libecal1.2_7 libbonobo2-devel libedataserver1.2-devel libgconf2-devel libglib2.0-devel libORBit2-devel
+external-source: evolution-data-server
+sdesc: "GNOME Evolution calendar library (libdevel)"
+ldesc: "GNOME Evolution backend server and libraries"

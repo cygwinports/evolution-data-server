@@ -1,0 +1,87 @@
+inherit gnome2
+
+DESCRIPTION="GNOME Evolution data server and libraries"
+HOMEPAGE="http://www.gnome.org/projects/evolution/"
+
+PATCH_URI="
+	2.24-no-undefined.patch
+	2.24-libdb41.patch
+	2.24-configure-kerberos.patch
+	2.24-camel-providerdir.patch
+	2.24-ipv6.patch
+"
+
+libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
+abis=(14    0        9     7    2          6         11          8             13         3                1     1)
+n=0
+
+PKG_NAMES="${PN}"
+evolution_data_server_CONTENTS="--exclude=gtk-doc --exclude=idl --exclude=camel-providers*
+                                usr/lib/bonobo/ usr/lib/${PN}-1.2/ usr/share/"
+for p in ${libs}
+do
+	abi=${abis[((n++))]}
+	PKG_NAMES+=" lib${p}1.2_${abi} lib${p}1.2-devel"
+	case ${p} in
+		camel)  declare lib${p}1_2_${abi}_CONTENTS="usr/bin/cygcamel*-${abi}.dll
+		                                            usr/lib/${PN}-1.2/camel-providers-${abi}/" ;;
+		*)  declare lib${p//-/_}1_2_${abi}_CONTENTS="usr/bin/cyg${p}-1.2-${abi}.dll" ;;
+	esac
+
+	case ${p} in
+		camel)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/camel/
+		                                           usr/lib/libcamel-provider-1.2.*" ;;
+		ecal)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/libecal
+		                                          usr/include/${PN}-${PV[1]}.${PV[2]}/libical/" ;;
+		egroupwise)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/groupwise/" ;;
+		exchange-storage*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/exchange/" ;;
+		gdata*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/google/lib${p}/" ;;
+		*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/lib${p}/" ;;
+	esac
+	declare lib${p//-/_}1_2_devel_CONTENTS+=" usr/lib/lib${p}-1.2.*"
+	case ${p} in
+		camel)  declare lib${p}1_2_devel_CONTENTS+=" usr/lib/pkgconfig/camel*.pc" ;;
+		edataserver)  declare lib${p//-/_}1_2_devel_CONTENTS+=" usr/lib/pkgconfig/${PN}-1.2.pc
+		                                                        usr/lib/pkgconfig/lib${p}-1.2.pc" ;;
+		*)  declare lib${p//-/_}1_2_devel_CONTENTS+=" usr/lib/pkgconfig/lib${p}-1.2.pc" ;;
+	esac
+	case ${p} in
+		egroupwise|exchange-storage|gdata|gdata-google)  ;;
+		camel)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/gtk-doc/html/camel/" ;;
+		*)  declare lib${p//-/_}1_2_devel_CONTENTS+=" usr/share/gtk-doc/html/lib${p}/" ;;
+	esac
+	case ${p} in
+		edataserver)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/idl/${PN}-1.2/*-DataServer.idl" ;;
+		ebook)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/idl/${PN}-1.2/*-Addressbook.idl" ;;
+		ecal)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/idl/${PN}-1.2/*-Calendar.idl" ;;
+	esac
+done
+unset n
+
+
+CYGCONF_ARGS="
+	--libexecdir=/usr/lib/evolution-data-server-1.2
+	--disable-dot-locking --disable-file-locking
+	--disable-glibtest
+	--disable-ipv6
+	--enable-gnome-keyring
+	--enable-nntp
+	--enable-nss --enable-smime
+	--with-krb5=/usr
+	--with-krb5-includes=/usr/include/heimdal
+	--with-krb5-libs=/usr/lib/heimdal
+	--with-libdb=/usr
+	--with-nspr-includes=/usr/include/nspr
+	--with-nspr-libs=/usr/lib/nspr
+	--with-nss-includes=/usr/include/nss
+	--with-nss-libs=/usr/lib/nss
+	--with-openldap
+	--without-krb4
+"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	rename libcam cygcam ${D}/usr/lib/evolution-data-server-1.2/camel-providers/*.urls
+}
