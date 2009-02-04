@@ -9,13 +9,13 @@ Runtime requirements:
   libcom_err1-1.1-1
   libdb4.1-4.1.25.3-3
   libgconf2_4-2.24.0-1
-  libgdk_pixbuf2.0_0-2.14.5-1
+  libgdk_pixbuf2.0_0-2.14.7-1
   libglade2.0_0-2.6.3-2
-  libglib2.0_0-2.18.3-1
+  libglib2.0_0-2.18.4-1
   libgnome-keyring0-2.24.1-1
   libgnome2_0-2.24.1-1
   libgssapi2-1.1-1
-  libgtk2.0_0-2.14.5-1
+  libgtk2.0_0-2.14.7-1
   libiconv2-1.12-1
   libintl8-0.17-2
   libkrb5_24-1.1-1
@@ -23,10 +23,10 @@ Runtime requirements:
   libnss3-3.11.9-1
   libopenldap2_3_0-2.3.43-1
   libORBit2_0-2.14.16-1
-  libpango1.0_0-1.22.3-1
-  libsoup2.4_1-2.24.2.1-1
-  libsqlite3_0-3.6.3-1
-  libxml2-2.7.2-1
+  libpango1.0_0-1.22.4-1
+  libsoup2.4_1-2.24.3-1
+  libsqlite3_0-3.6.10-1
+  libxml2-2.7.3-1
   minires-1.01-1
   zlib-1.2.3-2
 
@@ -57,39 +57,39 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack evolution-data-server-2.24.2-X-src.tar.bz2
+  unpack evolution-data-server-2.24.4.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./evolution-data-server-2.24.2-X.cygport all
+  cygport ./evolution-data-server-2.24.4.1-X.cygport all
 
 This will create:
-  /usr/src/evolution-data-server-2.24.2-X-src.tar.bz2
-  /usr/src/evolution-data-server-2.24.2-X.tar.bz2
-  /usr/src/libcamel1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libcamel1.2_14-2.24.2-X.tar.bz2
-  /usr/src/libebackend1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libebackend1.2_0-2.24.2-X.tar.bz2
-  /usr/src/libebook1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libebook1.2_9-2.24.2-X.tar.bz2
-  /usr/src/libecal1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libecal1.2_7-2.24.2-X.tar.bz2
-  /usr/src/libedata-book1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libedata-book1.2_2-2.24.2-X.tar.bz2
-  /usr/src/libedata-cal1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libedata-cal1.2_6-2.24.2-X.tar.bz2
-  /usr/src/libeedataserver1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libeedataserver1.2_11-2.24.2-X.tar.bz2
-  /usr/src/libedataserverui1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libedataserverui1.2_8-2.24.2-X.tar.bz2
-  /usr/src/libegroupwise1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libegroupwise1.2_13-2.24.2-X.tar.bz2
-  /usr/src/libexchange-storage1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libexchange-storage1.2_3-2.24.2-X.tar.bz2
-  /usr/src/libgdata1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libgdata1.2_1-2.24.2-X.tar.bz2
-  /usr/src/libgdata-google1.2-devel-2.24.2-X.tar.bz2
-  /usr/src/libgdata-google1.2_1-2.24.2-X.tar.bz2
+  /usr/src/evolution-data-server-2.24.4.1-X-src.tar.bz2
+  /usr/src/evolution-data-server-2.24.4.1-X.tar.bz2
+  /usr/src/libcamel1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libcamel1.2_14-2.24.4.1-X.tar.bz2
+  /usr/src/libebackend1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libebackend1.2_0-2.24.4.1-X.tar.bz2
+  /usr/src/libebook1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libebook1.2_9-2.24.4.1-X.tar.bz2
+  /usr/src/libecal1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libecal1.2_7-2.24.4.1-X.tar.bz2
+  /usr/src/libedata-book1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libedata-book1.2_2-2.24.4.1-X.tar.bz2
+  /usr/src/libedata-cal1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libedata-cal1.2_6-2.24.4.1-X.tar.bz2
+  /usr/src/libeedataserver1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libeedataserver1.2_11-2.24.4.1-X.tar.bz2
+  /usr/src/libedataserverui1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libedataserverui1.2_8-2.24.4.1-X.tar.bz2
+  /usr/src/libegroupwise1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libegroupwise1.2_13-2.24.4.1-X.tar.bz2
+  /usr/src/libexchange-storage1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libexchange-storage1.2_3-2.24.4.1-X.tar.bz2
+  /usr/src/libgdata1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libgdata1.2_1-2.24.4.1-X.tar.bz2
+  /usr/src/libgdata-google1.2-devel-2.24.4.1-X.tar.bz2
+  /usr/src/libgdata-google1.2_1-2.24.4.1-X.tar.bz2
 
 -------------------------------------------
 
@@ -126,12 +126,12 @@ Files included in the binary packages:
   /usr/lib/evolution-data-server-1.2/extensions/libecalbackendgroupwise.la
   /usr/lib/evolution-data-server-1.2/extensions/libecalbackendhttp.la
   /usr/lib/evolution-data-server-1.2/extensions/libecalbackendweather.la
-  /usr/share/doc/evolution-data-server-2.24.2/COPYING
-  /usr/share/doc/evolution-data-server-2.24.2/ChangeLog
-  /usr/share/doc/evolution-data-server-2.24.2/INSTALL
-  /usr/share/doc/evolution-data-server-2.24.2/MAINTAINERS
-  /usr/share/doc/evolution-data-server-2.24.2/NEWS
-  /usr/share/doc/evolution-data-server-2.24.2/TODO
+  /usr/share/doc/evolution-data-server-2.24.4.1/COPYING
+  /usr/share/doc/evolution-data-server-2.24.4.1/ChangeLog
+  /usr/share/doc/evolution-data-server-2.24.4.1/INSTALL
+  /usr/share/doc/evolution-data-server-2.24.4.1/MAINTAINERS
+  /usr/share/doc/evolution-data-server-2.24.4.1/NEWS
+  /usr/share/doc/evolution-data-server-2.24.4.1/TODO
   /usr/share/evolution-data-server-2.24/evolutionperson.schema
   /usr/share/evolution-data-server-2.24/glade/e-categories-dialog.glade
   /usr/share/evolution-data-server-2.24/glade/e-name-selector-dialog.glade
@@ -670,6 +670,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 2.24.4.1-1 -----
+Version bump.
 
 ----- version 2.24.2-1 -----
 Version bump for GNOME 2.24.

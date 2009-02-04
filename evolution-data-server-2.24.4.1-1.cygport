@@ -9,6 +9,7 @@ PATCH_URI="
 	2.24-configure-kerberos.patch
 	2.24-camel-providerdir.patch
 	2.24-ipv6.patch
+	2.24-byteswap.patch
 "
 
 libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
