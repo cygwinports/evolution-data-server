@@ -4,12 +4,10 @@ DESCRIPTION="GNOME Evolution data server and libraries"
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
 
 PATCH_URI="
-	2.24-no-undefined.patch
+	2.26-no-undefined.patch
 	2.24-libdb41.patch
 	2.24-configure-kerberos.patch
 	2.24-camel-providerdir.patch
-	2.24-ipv6.patch
-	2.24-byteswap.patch
 "
 
 libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
@@ -32,8 +30,6 @@ do
 	case ${p} in
 		camel)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/camel/
 		                                           usr/lib/libcamel-provider-1.2.*" ;;
-		ecal)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/libecal
-		                                          usr/include/${PN}-${PV[1]}.${PV[2]}/libical/" ;;
 		egroupwise)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/groupwise/" ;;
 		exchange-storage*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/exchange/" ;;
 		gdata*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/google/lib${p}/" ;;
@@ -62,27 +58,26 @@ unset n
 
 CYGCONF_ARGS="
 	--libexecdir=/usr/lib/evolution-data-server-1.2
-	--disable-dot-locking --disable-file-locking
 	--disable-glibtest
-	--disable-ipv6
 	--enable-gnome-keyring
 	--enable-nntp
 	--enable-nss --enable-smime
-	--with-krb5=/usr
-	--with-krb5-includes=/usr/include/heimdal
-	--with-krb5-libs=/usr/lib/heimdal
 	--with-libdb=/usr
 	--with-nspr-includes=/usr/include/nspr
-	--with-nspr-libs=/usr/lib/nspr
+	--with-nspr-libs=/usr/lib
 	--with-nss-includes=/usr/include/nss
-	--with-nss-libs=/usr/lib/nss
+	--with-nss-libs=/usr/lib
 	--with-openldap
 	--without-krb4
+	--without-krb5
 "
+#	--with-krb5=/usr
+#	--with-krb5-includes=/usr/include/heimdal
+#	--with-krb5-libs=/usr/lib/heimdal
 
 src_install() {
 	cd ${B}
 	cyginstall
 
-	rename libcam cygcam ${D}/usr/lib/evolution-data-server-1.2/camel-providers/*.urls
+	rename libcam cygcam ${D}/usr/lib/evolution-data-server-1.2/camel-providers*/*.urls
 }
