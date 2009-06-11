@@ -59,9 +59,8 @@ unset n
 CYGCONF_ARGS="
 	--libexecdir=/usr/lib/evolution-data-server-1.2
 	--disable-glibtest
-	--enable-gnome-keyring
 	--enable-nntp
-	--enable-nss --enable-smime
+	--disable-nss --disable-smime
 	--with-libdb=/usr
 	--with-nspr-includes=/usr/include/nspr
 	--with-nspr-libs=/usr/lib
