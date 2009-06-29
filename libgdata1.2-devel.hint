@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: cygwin libgdata1.2_1 libglib2.0-devel libxml2-devel
+requires: libgdata1.2_1 libglib2.0-devel libxml2-devel
 external-source: evolution-data-server
 sdesc: "GNOME Evolution GData library (libdevel)"
 ldesc: "GNOME Evolution backend server and libraries"

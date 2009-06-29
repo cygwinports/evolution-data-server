@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: cygwin libebackend1.2_0 libdb4.1-devel libedataserver1.2-devel libglib2.0-devel
+requires: libebackend1.2_0 libdb4.1-devel libedataserver1.2-devel libglib2.0-devel
 external-source: evolution-data-server
 sdesc: "GNOME Evolution backend library (libdevel)"
 ldesc: "GNOME Evolution backend server and libraries"
