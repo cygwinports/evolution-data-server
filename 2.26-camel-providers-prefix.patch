@@ -1,0 +1,21 @@
+Certainly there is a better way to do this...
+
+1) Remove the "lib" prefix from the .urls files and g_module_build_path().
+
+--- origsrc/evolution-data-server-2.26.3/camel/camel-provider.c	2009-06-26 07:36:57.000000000 -0500
++++ src/evolution-data-server-2.26.3/camel/camel-provider.c	2009-07-10 02:26:12.690679100 -0500
+@@ -136,6 +136,14 @@ camel_provider_init (void)
+ 			continue;
+ 		}
+ 		
++#ifdef G_WITH_CYGWIN
++		/* On Cygwin, libtool substitutes the "lib" prefix with "cyg" */
++		p = strrchr (name, '/');
++		p[1] = 'c';
++		p[2] = 'y';
++		p[3] = 'g';
++#endif
++
+ 		p = strrchr (name, '.');
+ 		strcpy (p, "." G_MODULE_SUFFIX);
+ 

@@ -6,8 +6,8 @@ HOMEPAGE="http://www.gnome.org/projects/evolution/"
 PATCH_URI="
 	2.26-no-undefined.patch
 	2.24-libdb41.patch
-	2.24-configure-kerberos.patch
 	2.24-camel-providerdir.patch
+	2.26-camel-providers-prefix.patch
 "
 
 libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
@@ -62,21 +62,12 @@ CYGCONF_ARGS="
 	--enable-nntp
 	--disable-nss --disable-smime
 	--with-libdb=/usr
-	--with-nspr-includes=/usr/include/nspr
-	--with-nspr-libs=/usr/lib
-	--with-nss-includes=/usr/include/nss
-	--with-nss-libs=/usr/lib
 	--with-openldap
 	--without-krb4
 	--without-krb5
 "
 #	--with-krb5=/usr
-#	--with-krb5-includes=/usr/include/heimdal
-#	--with-krb5-libs=/usr/lib/heimdal
-
-src_install() {
-	cd ${B}
-	cyginstall
-
-	rename libcam cygcam ${D}/usr/lib/evolution-data-server-1.2/camel-providers*/*.urls
-}
+#	--with-nspr-includes=/usr/include/nspr
+#	--with-nspr-libs=/usr/lib
+#	--with-nss-includes=/usr/include/nss
+#	--with-nss-libs=/usr/lib
