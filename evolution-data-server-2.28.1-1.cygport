@@ -3,11 +3,11 @@ inherit gnome2
 DESCRIPTION="GNOME Evolution data server and libraries"
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
 
+SRC_URI=${SRC_URI%.bz2}.gz
+
 PATCH_URI="
-	2.26-no-undefined.patch
-	2.24-libdb41.patch
-	2.24-camel-providerdir.patch
-	2.26-camel-providers-prefix.patch
+	2.28-no-undefined.patch
+	2.28-camel-providers-prefix.patch
 "
 
 libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
@@ -15,15 +15,16 @@ abis=(14    0        9     7    2          6         11          8             1
 n=0
 
 PKG_NAMES="${PN}"
-evolution_data_server_CONTENTS="--exclude=gtk-doc --exclude=idl --exclude=camel-providers*
+# --exclude=camel-providers*
+evolution_data_server_CONTENTS="--exclude=gtk-doc --exclude=idl
                                 usr/lib/bonobo/ usr/lib/${PN}-1.2/ usr/share/"
 for p in ${libs}
 do
 	abi=${abis[((n++))]}
 	PKG_NAMES+=" lib${p}1.2_${abi} lib${p}1.2-devel"
 	case ${p} in
-		camel)  declare lib${p}1_2_${abi}_CONTENTS="usr/bin/cygcamel*-${abi}.dll
-		                                            usr/lib/${PN}-1.2/camel-providers-${abi}/" ;;
+		camel)  declare lib${p}1_2_${abi}_CONTENTS="usr/bin/cygcamel*-${abi}.dll" ;;
+#		                                            usr/lib/${PN}-1.2/camel-providers-${abi}/" ;;
 		*)  declare lib${p//-/_}1_2_${abi}_CONTENTS="usr/bin/cyg${p}-1.2-${abi}.dll" ;;
 	esac
 
@@ -64,9 +65,9 @@ CYGCONF_ARGS="
 	--with-libdb=/usr
 	--with-openldap
 	--without-krb4
-	--without-krb5
+	--with-krb5
+	--with-krb5=/usr
 "
-#	--with-krb5=/usr
 #	--with-nspr-includes=/usr/include/nspr
 #	--with-nspr-libs=/usr/lib
 #	--with-nss-includes=/usr/include/nss

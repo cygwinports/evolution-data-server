@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: libedataserver1.2_11 libedataserverui1.2_8 libgcc1 libgconf2_4 libglib2.0_0 libgtk2.0_0 libintl8 libkrb5_24 libopenldap2_3_0 minires libsoup2.4_1 libxml2
+requires: libedataserver1.2_11 libedataserverui1.2_8 libgcc1 libgconf2_4 libglib2.0_0 libgtk2.0_0 libintl8 libkrb5_25 libopenldap2_3_0 libsoup2.4_1 libxml2
 external-source: evolution-data-server
 sdesc: "GNOME Evolution Exchange library (runtime)"
 ldesc: "GNOME Evolution backend server and libraries"

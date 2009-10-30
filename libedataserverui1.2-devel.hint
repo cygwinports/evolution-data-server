@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: libedataserverui1.2_8 libatk1.0-devel libebook1.2-devel libedataserver1.2-devel libgconf2-devel libgdk_pixbuf2.0-devel libglade2.0-devel libglib2.0-devel libgnome-keyring-devel libgtk2.0-devel libpango1.0-devel
+requires: libedataserverui1.2_8 libatk1.0-devel libebook1.2-devel libedataserver1.2-devel libgconf2-devel libgdk_pixbuf2.0-devel libglade2.0-devel libglib2.0-devel libgtk2.0-devel libpango1.0-devel
 external-source: evolution-data-server
 sdesc: "GNOME Evolution server UI library (libdevel)"
 ldesc: "GNOME Evolution backend server and libraries"

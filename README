@@ -3,43 +3,45 @@ evolution-data-server
 GNOME Evolution backend server and libraries
 
 Runtime requirements:
-  cygwin-1.7.0-50
-  libatk1.0_0-1.26.0-1
-  libbonobo2_0-2.24.1-1
-  libdb4.1-4.1.25.3-2
-  libgcc1-4.3.2-2
-  libgconf2_4-2.26.2-1
-  libgdk_pixbuf2.0_0-2.16.3-1
+  cygwin-1.7.0-62
+  libatk1.0_0-1.28.0-1
+  libbonobo2_0-2.24.2-1
+  libcom_err2-1.41.9-1
+  libdb4.5-4.5.20.2-2
+  libgcc1-4.3.4-1
+  libgconf2_4-2.28.0-1
+  libgdk_pixbuf2.0_0-2.18.3-1
   libglade2.0_0-2.6.4-1
-  libglib2.0_0-2.20.4-1
-  libgnome-keyring0-2.26.3-1
-  libgnome2_0-2.26.0-1
-  libgtk2.0_0-2.16.3-1
+  libglib2.0_0-2.22.2-1
+  libgssapi2-1.2.1-1
+  libgtk2.0_0-2.18.3-1
+  libgweather1-2.28.0-1
   libical0-0.43-10
   libiconv2-1.13-10
   libintl8-0.17-11
+  libkrb5_25-1.2.1-1
   libopenldap2_3_0-2.3.43-1
   libORBit2_0-2.14.17-1
-  libpango1.0_0-1.24.3-1
-  libsoup2.4_1-2.26.3-1
+  libpango1.0_0-1.26.0-1
+  libsoup2.4_1-2.28.1-1
   libsqlite3_0-3.6.11-1
-  libxml2-2.7.3-10
+  libxml2-2.7.4-1
   zlib0-1.2.3-10
 
 Build requirements:
 (besides corresponding -devel packages)
   autoconf2.5-2.63-10
-  automake1.10-1.10.2-10
-  binutils-20080624-2
+  automake1.11-1.11-10
+  binutils-2.19.51-1
   bison-2.3-1
-  cygport-0.9.7-1
+  cygport-0.9.10-1
   flex-2.5.35-1
-  gawk-3.1.6-2
-  gcc4-core-4.3.2-2
-  gnome-common-2.26.0-2
+  gawk-3.1.7-1
+  gcc4-core-4.3.4-1
+  gnome-common-2.28.0-1
   gtk-doc-1.11-2
   intltool-0.40.6-1
-  libtool-2.2.7a-13
+  libtool-2.2.7a-14
   make-3.81-2
   pkg-config-0.23b-10
   sed-4.1.5-2
@@ -53,572 +55,46 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack evolution-data-server-2.26.3-X-src.tar.bz2
+  unpack evolution-data-server-2.28.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./evolution-data-server-2.26.3-X.cygport all
+  cygport ./evolution-data-server-2.28.1-X.cygport all
 
 This will create:
-  /usr/src/evolution-data-server-2.26.3-X-src.tar.bz2
-  /usr/src/evolution-data-server-2.26.3-X.tar.bz2
-  /usr/src/libcamel1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libcamel1.2_14-2.26.3-X.tar.bz2
-  /usr/src/libebackend1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libebackend1.2_0-2.26.3-X.tar.bz2
-  /usr/src/libebook1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libebook1.2_9-2.26.3-X.tar.bz2
-  /usr/src/libecal1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libecal1.2_7-2.26.3-X.tar.bz2
-  /usr/src/libedata-book1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libedata-book1.2_2-2.26.3-X.tar.bz2
-  /usr/src/libedata-cal1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libedata-cal1.2_6-2.26.3-X.tar.bz2
-  /usr/src/libeedataserver1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libeedataserver1.2_11-2.26.3-X.tar.bz2
-  /usr/src/libedataserverui1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libedataserverui1.2_8-2.26.3-X.tar.bz2
-  /usr/src/libegroupwise1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libegroupwise1.2_13-2.26.3-X.tar.bz2
-  /usr/src/libexchange-storage1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libexchange-storage1.2_3-2.26.3-X.tar.bz2
-  /usr/src/libgdata1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libgdata1.2_1-2.26.3-X.tar.bz2
-  /usr/src/libgdata-google1.2-devel-2.26.3-X.tar.bz2
-  /usr/src/libgdata-google1.2_1-2.26.3-X.tar.bz2
+  /usr/src/evolution-data-server-2.28.1-X-src.tar.bz2
+  /usr/src/evolution-data-server-2.28.1-X.tar.bz2
+  /usr/src/libcamel1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libcamel1.2_14-2.28.1-X.tar.bz2
+  /usr/src/libebackend1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libebackend1.2_0-2.28.1-X.tar.bz2
+  /usr/src/libebook1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libebook1.2_9-2.28.1-X.tar.bz2
+  /usr/src/libecal1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libecal1.2_7-2.28.1-X.tar.bz2
+  /usr/src/libedata-book1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libedata-book1.2_2-2.28.1-X.tar.bz2
+  /usr/src/libedata-cal1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libedata-cal1.2_6-2.28.1-X.tar.bz2
+  /usr/src/libeedataserver1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libeedataserver1.2_11-2.28.1-X.tar.bz2
+  /usr/src/libedataserverui1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libedataserverui1.2_8-2.28.1-X.tar.bz2
+  /usr/src/libegroupwise1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libegroupwise1.2_13-2.28.1-X.tar.bz2
+  /usr/src/libexchange-storage1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libexchange-storage1.2_3-2.28.1-X.tar.bz2
+  /usr/src/libgdata1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libgdata1.2_1-2.28.1-X.tar.bz2
+  /usr/src/libgdata-google1.2-devel-2.28.1-X.tar.bz2
+  /usr/src/libgdata-google1.2_1-2.28.1-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary packages:
-
-(evolution-data-server)
-  /usr/lib/bonobo/servers/GNOME_Evolution_DataServer_1.2.server
-  /usr/lib/evolution-data-server-1.2/camel-index-control-1.2.exe
-  /usr/lib/evolution-data-server-1.2/camel-lock-helper-1.2.exe
-  /usr/lib/evolution-data-server-1.2/evolution-data-server-2.26.exe
-  /usr/lib/evolution-data-server-1.2/extensions/cygebookbackendfile.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygebookbackendgoogle.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygebookbackendgroupwise.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygebookbackendldap.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygebookbackendvcf.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygebookbackendwebdav.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendcaldav.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendcontacts.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendfile.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendgoogle.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendgroupwise.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendhttp.dll
-  /usr/lib/evolution-data-server-1.2/extensions/cygecalbackendweather.dll
-  /usr/lib/evolution-data-server-1.2/extensions/libebookbackendfile.la
-  /usr/lib/evolution-data-server-1.2/extensions/libebookbackendgoogle.la
-  /usr/lib/evolution-data-server-1.2/extensions/libebookbackendgroupwise.la
-  /usr/lib/evolution-data-server-1.2/extensions/libebookbackendldap.la
-  /usr/lib/evolution-data-server-1.2/extensions/libebookbackendvcf.la
-  /usr/lib/evolution-data-server-1.2/extensions/libebookbackendwebdav.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendcaldav.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendcontacts.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendfile.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendgoogle.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendgroupwise.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendhttp.la
-  /usr/lib/evolution-data-server-1.2/extensions/libecalbackendweather.la
-  /usr/share/doc/evolution-data-server/COPYING
-  /usr/share/doc/evolution-data-server/ChangeLog
-  /usr/share/doc/evolution-data-server/MAINTAINERS
-  /usr/share/doc/evolution-data-server/NEWS
-  /usr/share/doc/evolution-data-server/TODO
-  /usr/share/evolution-data-server-2.26/evolutionperson.schema
-  /usr/share/evolution-data-server-2.26/glade/e-categories-dialog.glade
-  /usr/share/evolution-data-server-2.26/glade/e-name-selector-dialog.glade
-  /usr/share/evolution-data-server-2.26/weather/Locations.xml
-  /usr/share/locale/am/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ar/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/as/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/az/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/be/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/bg/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/bn/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/bn_IN/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/bs/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ca/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/cs/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/cy/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/da/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/de/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/dz/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/el/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/en_AU/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/en_CA/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/en_GB/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/es/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/et/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/eu/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/fa/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/fi/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/fr/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ga/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/gl/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/gu/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/he/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/hi/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/hr/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/hu/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/id/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/is/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/it/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ja/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ka/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/kn/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ko/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ku/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/lt/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/lv/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/mk/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ml/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/mn/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/mr/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ms/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/nb/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ne/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/nl/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/nn/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/oc/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/or/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/pa/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/pl/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/pt/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/pt_BR/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ro/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ru/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/rw/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/si/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/sk/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/sl/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/sq/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/sr/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/sr@latin/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/sv/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/ta/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/te/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/th/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/tr/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/uk/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/vi/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/wa/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/xh/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/zh_CN/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/zh_HK/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/locale/zh_TW/LC_MESSAGES/evolution-data-server-2.26.mo
-  /usr/share/pixmaps/evolution-data-server/category_birthday_16.png
-  /usr/share/pixmaps/evolution-data-server/category_business_16.png
-  /usr/share/pixmaps/evolution-data-server/category_favorites_16.png
-  /usr/share/pixmaps/evolution-data-server/category_gifts_16.png
-  /usr/share/pixmaps/evolution-data-server/category_goals_16.png
-  /usr/share/pixmaps/evolution-data-server/category_holiday-cards_16.png
-  /usr/share/pixmaps/evolution-data-server/category_holiday_16.png
-  /usr/share/pixmaps/evolution-data-server/category_hot-contacts_16.png
-  /usr/share/pixmaps/evolution-data-server/category_ideas_16.png
-  /usr/share/pixmaps/evolution-data-server/category_international_16.png
-  /usr/share/pixmaps/evolution-data-server/category_key-customer_16.png
-  /usr/share/pixmaps/evolution-data-server/category_miscellaneous_16.png
-  /usr/share/pixmaps/evolution-data-server/category_personal_16.png
-  /usr/share/pixmaps/evolution-data-server/category_phonecalls_16.png
-  /usr/share/pixmaps/evolution-data-server/category_status_16.png
-  /usr/share/pixmaps/evolution-data-server/category_strategies_16.png
-  /usr/share/pixmaps/evolution-data-server/category_suppliers_16.png
-  /usr/share/pixmaps/evolution-data-server/category_time-and-expenses_16.png
-
-(libcamel1.2_14)
-  /usr/bin/cygcamel-1.2-14.dll
-  /usr/bin/cygcamel-provider-1.2-14.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamelgroupwise.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamelimap.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamellocal.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamelnntp.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamelpop3.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamelsendmail.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/cygcamelsmtp.dll
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelgroupwise.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelgroupwise.urls
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelimap.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelimap.urls
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamellocal.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamellocal.urls
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelnntp.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelnntp.urls
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelpop3.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelpop3.urls
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelsendmail.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelsendmail.urls
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelsmtp.la
-  /usr/lib/evolution-data-server-1.2/camel-providers-14/libcamelsmtp.urls
-
-(libebackend1.2_0)
-  /usr/bin/cygebackend-1.2-0.dll
-
-(libebook1.2_9)
-  /usr/bin/cygebook-1.2-9.dll
-
-(libecal1.2_7)
-  /usr/bin/cygecal-1.2-7.dll
-
-(libedata-book1.2_2)
-  /usr/bin/cygedata-book-1.2-2.dll
-
-(libedata-cal1.2_6)
-  /usr/bin/cygedata-cal-1.2-6.dll
-
-(libedataserver1.2_11)
-  /usr/bin/cygedataserver-1.2-11.dll
-
-(libedataserverui1.2_8)
-  /usr/bin/cygedataserverui-1.2-8.dll
-
-(libegroupwise1.2_13)
-  /usr/bin/cygegroupwise-1.2-13.dll
-
-(libexchange-storage1.2_3)
-  /usr/bin/cygexchange-storage-1.2-3.dll
-
-(libgdata1.2_1)
-  /usr/bin/cyggdata-1.2-1.dll
-
-(libgdata-google1.2_1)
-  /usr/bin/cyggdata-google-1.2-1.dll
-
-(libcamel1.2-devel)
-  /usr/include/evolution-data-server-2.26/camel/camel-address.h
-  /usr/include/evolution-data-server-2.26/camel/camel-arg.h
-  /usr/include/evolution-data-server-2.26/camel/camel-block-file.h
-  /usr/include/evolution-data-server-2.26/camel/camel-certdb.h
-  /usr/include/evolution-data-server-2.26/camel/camel-charset-map.h
-  /usr/include/evolution-data-server-2.26/camel/camel-cipher-context.h
-  /usr/include/evolution-data-server-2.26/camel/camel-data-cache.h
-  /usr/include/evolution-data-server-2.26/camel/camel-data-wrapper.h
-  /usr/include/evolution-data-server-2.26/camel/camel-db.h
-  /usr/include/evolution-data-server-2.26/camel/camel-debug.h
-  /usr/include/evolution-data-server-2.26/camel/camel-digest-folder.h
-  /usr/include/evolution-data-server-2.26/camel/camel-digest-store.h
-  /usr/include/evolution-data-server-2.26/camel/camel-digest-summary.h
-  /usr/include/evolution-data-server-2.26/camel/camel-disco-diary.h
-  /usr/include/evolution-data-server-2.26/camel/camel-disco-folder.h
-  /usr/include/evolution-data-server-2.26/camel/camel-disco-store.h
-  /usr/include/evolution-data-server-2.26/camel/camel-exception-list.def
-  /usr/include/evolution-data-server-2.26/camel/camel-exception.h
-  /usr/include/evolution-data-server-2.26/camel/camel-file-utils.h
-  /usr/include/evolution-data-server-2.26/camel/camel-filter-driver.h
-  /usr/include/evolution-data-server-2.26/camel/camel-filter-search.h
-  /usr/include/evolution-data-server-2.26/camel/camel-folder-search.h
-  /usr/include/evolution-data-server-2.26/camel/camel-folder-summary.h
-  /usr/include/evolution-data-server-2.26/camel/camel-folder-thread.h
-  /usr/include/evolution-data-server-2.26/camel/camel-folder.h
-  /usr/include/evolution-data-server-2.26/camel/camel-gpg-context.h
-  /usr/include/evolution-data-server-2.26/camel/camel-html-parser.h
-  /usr/include/evolution-data-server-2.26/camel/camel-http-stream.h
-  /usr/include/evolution-data-server-2.26/camel/camel-i18n.h
-  /usr/include/evolution-data-server-2.26/camel/camel-iconv.h
-  /usr/include/evolution-data-server-2.26/camel/camel-index.h
-  /usr/include/evolution-data-server-2.26/camel/camel-internet-address.h
-  /usr/include/evolution-data-server-2.26/camel/camel-junk-plugin.h
-  /usr/include/evolution-data-server-2.26/camel/camel-list-utils.h
-  /usr/include/evolution-data-server-2.26/camel/camel-lock-client.h
-  /usr/include/evolution-data-server-2.26/camel/camel-lock-helper.h
-  /usr/include/evolution-data-server-2.26/camel/camel-lock.h
-  /usr/include/evolution-data-server-2.26/camel/camel-medium.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-basic.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-bestenc.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-canon.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-charset.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-crlf.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-enriched.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-from.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-gzip.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-html.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-index.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-linewrap.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-pgp.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-progress.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-save.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-tohtml.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-windows.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter-yenc.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-filter.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-message.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-parser.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-part-utils.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-part.h
-  /usr/include/evolution-data-server-2.26/camel/camel-mime-utils.h
-  /usr/include/evolution-data-server-2.26/camel/camel-movemail.h
-  /usr/include/evolution-data-server-2.26/camel/camel-msgport.h
-  /usr/include/evolution-data-server-2.26/camel/camel-multipart-encrypted.h
-  /usr/include/evolution-data-server-2.26/camel/camel-multipart-signed.h
-  /usr/include/evolution-data-server-2.26/camel/camel-multipart.h
-  /usr/include/evolution-data-server-2.26/camel/camel-net-utils.h
-  /usr/include/evolution-data-server-2.26/camel/camel-news-address.h
-  /usr/include/evolution-data-server-2.26/camel/camel-nntp-address.h
-  /usr/include/evolution-data-server-2.26/camel/camel-object.h
-  /usr/include/evolution-data-server-2.26/camel/camel-offline-folder.h
-  /usr/include/evolution-data-server-2.26/camel/camel-offline-journal.h
-  /usr/include/evolution-data-server-2.26/camel/camel-offline-store.h
-  /usr/include/evolution-data-server-2.26/camel/camel-operation.h
-  /usr/include/evolution-data-server-2.26/camel/camel-partition-table.h
-  /usr/include/evolution-data-server-2.26/camel/camel-process.h
-  /usr/include/evolution-data-server-2.26/camel/camel-provider.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-anonymous.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-cram-md5.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-digest-md5.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-gssapi.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-kerberos4.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-login.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-ntlm.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-plain.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl-popb4smtp.h
-  /usr/include/evolution-data-server-2.26/camel/camel-sasl.h
-  /usr/include/evolution-data-server-2.26/camel/camel-search-private.h
-  /usr/include/evolution-data-server-2.26/camel/camel-search-sql-sexp.h
-  /usr/include/evolution-data-server-2.26/camel/camel-search-sql.h
-  /usr/include/evolution-data-server-2.26/camel/camel-seekable-stream.h
-  /usr/include/evolution-data-server-2.26/camel/camel-seekable-substream.h
-  /usr/include/evolution-data-server-2.26/camel/camel-service.h
-  /usr/include/evolution-data-server-2.26/camel/camel-session.h
-  /usr/include/evolution-data-server-2.26/camel/camel-smime-context.h
-  /usr/include/evolution-data-server-2.26/camel/camel-store-summary.h
-  /usr/include/evolution-data-server-2.26/camel/camel-store.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-buffer.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-filter.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-fs.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-mem.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-null.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-process.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream-vfs.h
-  /usr/include/evolution-data-server-2.26/camel/camel-stream.h
-  /usr/include/evolution-data-server-2.26/camel/camel-string-utils.h
-  /usr/include/evolution-data-server-2.26/camel/camel-tcp-stream-raw.h
-  /usr/include/evolution-data-server-2.26/camel/camel-tcp-stream-ssl.h
-  /usr/include/evolution-data-server-2.26/camel/camel-tcp-stream.h
-  /usr/include/evolution-data-server-2.26/camel/camel-text-index.h
-  /usr/include/evolution-data-server-2.26/camel/camel-transport.h
-  /usr/include/evolution-data-server-2.26/camel/camel-trie.h
-  /usr/include/evolution-data-server-2.26/camel/camel-types.h
-  /usr/include/evolution-data-server-2.26/camel/camel-uid-cache.h
-  /usr/include/evolution-data-server-2.26/camel/camel-url-scanner.h
-  /usr/include/evolution-data-server-2.26/camel/camel-url.h
-  /usr/include/evolution-data-server-2.26/camel/camel-utf8.h
-  /usr/include/evolution-data-server-2.26/camel/camel-vee-folder.h
-  /usr/include/evolution-data-server-2.26/camel/camel-vee-store.h
-  /usr/include/evolution-data-server-2.26/camel/camel-vee-summary.h
-  /usr/include/evolution-data-server-2.26/camel/camel-vtrash-folder.h
-  /usr/include/evolution-data-server-2.26/camel/camel.h
-  /usr/lib/libcamel-1.2.dll.a
-  /usr/lib/libcamel-1.2.la
-  /usr/lib/libcamel-provider-1.2.dll.a
-  /usr/lib/libcamel-provider-1.2.la
-  /usr/lib/pkgconfig/camel-1.2.pc
-  /usr/lib/pkgconfig/camel-provider-1.2.pc
-  /usr/share/gtk-doc/html/camel/*
-
-(libebackend1.2-devel)
-  /usr/include/evolution-data-server-2.26/libebackend/e-data-server-module.h
-  /usr/include/evolution-data-server-2.26/libebackend/e-db3-utils.h
-  /usr/include/evolution-data-server-2.26/libebackend/e-dbhash.h
-  /usr/include/evolution-data-server-2.26/libebackend/e-file-cache.h
-  /usr/lib/libebackend-1.2.dll.a
-  /usr/lib/libebackend-1.2.la
-  /usr/lib/pkgconfig/libebackend-1.2.pc
-  /usr/share/gtk-doc/html/libebackend/*
-
-(libebook1.2-devel)
-  /usr/include/evolution-data-server-2.24/libebook/e-address-western.h
-  /usr/include/evolution-data-server-2.24/libebook/e-book-query.h
-  /usr/include/evolution-data-server-2.24/libebook/e-book-types.h
-  /usr/include/evolution-data-server-2.24/libebook/e-book-view.h
-  /usr/include/evolution-data-server-2.24/libebook/e-book.h
-  /usr/include/evolution-data-server-2.24/libebook/e-contact.h
-  /usr/include/evolution-data-server-2.24/libebook/e-destination.h
-  /usr/include/evolution-data-server-2.24/libebook/e-name-western.h
-  /usr/include/evolution-data-server-2.24/libebook/e-vcard.h
-  /usr/lib/libebook-1.2.dll.a
-  /usr/lib/libebook-1.2.la
-  /usr/lib/pkgconfig/libebook-1.2.pc
-  /usr/share/gtk-doc/html/libebook/*
-  /usr/share/idl/evolution-data-server-1.2/Evolution-DataServer-Addressbook.idl
-
-(libecal1.2-devel)
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-check-timezones.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-component.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-recur.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-time-util.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-types.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-util.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal-view.h
-  /usr/include/evolution-data-server-2.24/libecal/e-cal.h
-  /usr/lib/libecal-1.2.dll.a
-  /usr/lib/libecal-1.2.la
-  /usr/lib/pkgconfig/libecal-1.2.pc
-  /usr/share/gtk-doc/html/libecal/*
-  /usr/share/idl/evolution-data-server-1.2/Evolution-DataServer-Calendar.idl
-
-(libedata-book1.2-devel)
-  /usr/include/evolution-data-server-2.24/libedata-book/Evolution-DataServer-Addressbook.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend-cache.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend-db-cache.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend-factory.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend-sexp.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend-summary.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend-sync.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-book-backend.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-data-book-factory.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-data-book-types.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-data-book-view.h
-  /usr/include/evolution-data-server-2.24/libedata-book/e-data-book.h
-  /usr/lib/libedata-book-1.2.dll.a
-  /usr/lib/libedata-book-1.2.la
-  /usr/lib/pkgconfig/libedata-book-1.2.pc
-  /usr/share/gtk-doc/html/libedata-book/*
-
-(libedata-cal1.2-devel)
-  /usr/include/evolution-data-server-2.24/libedata-cal/Evolution-DataServer-Calendar.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend-cache.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend-factory.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend-loader-factory.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend-sexp.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend-sync.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend-util.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-cal-backend.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-data-cal-common.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-data-cal-factory.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-data-cal-view.h
-  /usr/include/evolution-data-server-2.24/libedata-cal/e-data-cal.h
-  /usr/lib/libedata-cal-1.2.dll.a
-  /usr/lib/libedata-cal-1.2.la
-  /usr/lib/pkgconfig/libedata-cal-1.2.pc
-  /usr/share/gtk-doc/html/libedata-cal/*
-
-(libedataserver1.2-devel)
-  /usr/include/evolution-data-server-2.24/libedataserver/e-account-list.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-account.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-categories.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-component-listener.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-data-server-util.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-flag.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-iconv.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-iterator.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-list-iterator.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-list.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-memory.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-msgport.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-proxy.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-sexp.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-source-group.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-source-list.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-source.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-time-utils.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-trie.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-uid.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-url.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-xml-hash-utils.h
-  /usr/include/evolution-data-server-2.24/libedataserver/e-xml-utils.h
-  /usr/include/evolution-data-server-2.24/libedataserver/eds-version.h
-  /usr/include/evolution-data-server-2.24/libedataserver/md5-utils.h
-  /usr/lib/libedataserver-1.2.dll.a
-  /usr/lib/libedataserver-1.2.la
-  /usr/lib/pkgconfig/evolution-data-server-1.2.pc
-  /usr/lib/pkgconfig/libedataserver-1.2.pc
-  /usr/share/gtk-doc/html/libedataserver/*
-  /usr/share/idl/evolution-data-server-1.2/Evolution-DataServer.idl
-
-(libedataserverui1.2-devel)
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-book-auth-util.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-categories-dialog.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-cell-renderer-color.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-contact-store.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-destination-store.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-name-selector-dialog.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-name-selector-entry.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-name-selector-list.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-name-selector-model.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-name-selector.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-passwords.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-source-combo-box.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-source-option-menu.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-source-selector-dialog.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-source-selector.h
-  /usr/include/evolution-data-server-2.24/libedataserverui/e-tree-model-generator.h
-  /usr/lib/libedataserverui-1.2.dll.a
-  /usr/lib/libedataserverui-1.2.la
-  /usr/lib/pkgconfig/libedataserverui-1.2.pc
-  /usr/share/gtk-doc/html/libedataserverui/*
-
-(libegroupwise1.2-devel)
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-connection.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-container.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-filter.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-item.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-message.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-proxy.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-recur-utils.h
-  /usr/include/evolution-data-server-2.26/groupwise/e-gw-sendoptions.h
-  /usr/include/evolution-data-server-2.26/groupwise/soup-soap-message.h
-  /usr/include/evolution-data-server-2.26/groupwise/soup-soap-response.h
-  /usr/lib/libegroupwise-1.2.dll.a
-  /usr/lib/libegroupwise-1.2.la
-  /usr/lib/pkgconfig/libegroupwise-1.2.pc
-
-(libexchange-storage1.2-devel)
-  /usr/include/evolution-data-server-2.26/exchange/e-folder-exchange.h
-  /usr/include/evolution-data-server-2.26/exchange/e-folder.h
-  /usr/include/evolution-data-server-2.26/exchange/e-storage.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-autoconfig.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-context.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-freebusy.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-global-catalog-ldap.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-global-catalog.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-http-utils.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-marshal.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-operation.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-properties.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-propnames.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-restriction.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-result.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-security-descriptor.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-sid.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-types.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-uri.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-utils.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-validate.h
-  /usr/include/evolution-data-server-2.26/exchange/e2k-xml-utils.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-account.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-constants.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-esource.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-folder-size.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-hierarchy-foreign.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-hierarchy-somedav.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-hierarchy-webdav.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-hierarchy.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-oof.h
-  /usr/include/evolution-data-server-2.26/exchange/exchange-types.h
-  /usr/include/evolution-data-server-2.26/exchange/mapi.h
-  /usr/lib/libexchange-storage-1.2.dll.a
-  /usr/lib/libexchange-storage-1.2.la
-  /usr/lib/pkgconfig/libexchange-storage-1.2.pc
-
-(libgdata1.2-devel)
-  /usr/include/evolution-data-server-2.24/google/libgdata/gdata-entry.h
-  /usr/include/evolution-data-server-2.24/google/libgdata/gdata-feed.h
-  /usr/include/evolution-data-server-2.24/google/libgdata/gdata-service-iface.h
-  /usr/lib/libgdata-1.2.dll.a
-  /usr/lib/libgdata-1.2.la
-  /usr/lib/pkgconfig/libgdata-1.2.pc
-
-(libgdata-google1.2-devel)
-  /usr/include/evolution-data-server-2.24/google/libgdata-google/gdata-google-service.h
-  /usr/lib/libgdata-google-1.2.dll.a
-  /usr/lib/libgdata-google-1.2.la
-  /usr/lib/pkgconfig/libgdata-google-1.2.pc
-
-------------------
-
 Port Notes:
+
+----- version 2.28.1-1 -----
+Version bump for GNOME 2.28.
 
 ----- version 2.26.3-1 -----
 Version bump.

@@ -1,6 +1,6 @@
---- origsrc/evolution-data-server-2.24.2/camel/providers/sendmail/Makefile.am	2008-10-13 03:07:37.000000000 -0500
-+++ src/evolution-data-server-2.24.2/camel/providers/sendmail/Makefile.am	2008-12-14 02:14:42.525140700 -0600
-@@ -21,7 +21,13 @@
+--- origsrc/evolution-data-server-2.28.1/camel/providers/sendmail/Makefile.am	2009-10-17 18:08:43.000000000 -0500
++++ src/evolution-data-server-2.28.1/camel/providers/sendmail/Makefile.am	2009-10-29 17:12:10.989888700 -0500
+@@ -20,7 +20,13 @@ libcamelsendmail_la_SOURCES = 			\
  noinst_HEADERS =		\
  	camel-sendmail-transport.h
  
@@ -15,45 +15,43 @@
  
  libcamelsendmail_la_LIBADD = \
  	$(top_builddir)/camel/libcamel-1.2.la				\
---- origsrc/evolution-data-server-2.24.2/configure.in	2008-11-12 00:27:34.000000000 -0600
-+++ src/evolution-data-server-2.24.2/configure.in	2008-12-14 02:14:42.759515700 -0600
-@@ -199,29 +199,46 @@
- 
+--- origsrc/evolution-data-server-2.28.1/configure.ac	2009-10-17 20:48:03.000000000 -0500
++++ src/evolution-data-server-2.28.1/configure.ac	2009-10-29 17:14:43.630099400 -0500
+@@ -229,30 +229,45 @@ PKG_PROG_PKG_CONFIG
+ dnl Check for Win32
  AC_MSG_CHECKING([for Win32])
  case "$host" in
 +*-cygwin*)
-+    platform_win32=yes
-+    os_win32=no
-+    NO_UNDEFINED='-no-undefined'
-+    SOCKET_LIBS=''
-+    DL_LIB=''
-+    SOFTOKN3_LIB=''
-+    LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
-+    SOPREFIX=cyg
-+    ;;
++	platform_win32=yes
++	os_win32=no
++	NO_UNDEFINED='-no-undefined'
++	DL_LIB=''
++	SOFTOKN3_LIB=''
++	LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
++	SOPREFIX='cyg'
++	;;
  *-mingw*)
-+    platform_win32=yes
-     os_win32=yes
-     NO_UNDEFINED='-no-undefined'
-     SOCKET_LIBS='-lws2_32 -ldnsapi'
-     DL_LIB=''
-     SOFTOKN3_LIB=''
-     LIBEXECDIR_IN_SERVER_FILE='../../../libexec'
-+    SOPREFIX=lib
-     AC_CACHE_VAL(have_addrinfo, [have_addrinfo=yes])
-     AC_DEFINE(_WIN32_WINNT, 0x501, [To get getaddrinfo etc declarations])
-     ;;
--*)  os_win32=no
-+*)
-+    platform_win32=no
-+    os_win32=no
-     NO_UNDEFINED=''
-     SOCKET_LIBS=''
-     DL_LIB='-ldl'
-     SOFTOKN3_LIB='-lsoftokn3'
-     LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
-+    SOPREFIX=lib
-     ;;
++	platform_win32=yes
+ 	os_win32=yes
+ 	NO_UNDEFINED='-no-undefined'
+ 	SOCKET_LIBS='-lws2_32 -ldnsapi'
+ 	DL_LIB=''
+ 	SOFTOKN3_LIB=''
+ 	LIBEXECDIR_IN_SERVER_FILE='../../../libexec'
++	SOPREFIX='lib'
+ 	AC_CACHE_VAL(ac_cv_have_addrinfo, [ac_cv_have_addrinfo=yes])
+ 	AC_DEFINE(_WIN32_WINNT, 0x501, [To get getaddrinfo etc declarations])
+ 	;;
+ *)
++	platform_win32=no
+ 	os_win32=no
+ 	NO_UNDEFINED=''
+ 	SOCKET_LIBS=''
+ 	DL_LIB='-ldl'
+ 	SOFTOKN3_LIB='-lsoftokn3'
+ 	LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
++	SOPREFIX='lib'
+ 	;;
  esac
  AC_MSG_RESULT([$os_win32])
 +AM_CONDITIONAL(PLATFORM_WIN32, [test $platform_win32 = yes])
@@ -63,10 +61,10 @@
  AC_SUBST(LIBEXECDIR_IN_SERVER_FILE)
 +AC_SUBST(SOPREFIX)
  
- AC_CHECK_HEADERS(pthread.h semaphore.h sys/wait.h)
- AC_CHECK_FUNCS(fsync strptime strtok_r)
---- origsrc/evolution-data-server-2.24.2/servers/exchange/storage/Makefile.am	2008-10-13 03:08:08.000000000 -0500
-+++ src/evolution-data-server-2.24.2/servers/exchange/storage/Makefile.am	2008-12-14 02:14:42.775140700 -0600
+ dnl Check for posix compatible sys/wait.h
+ AC_HEADER_SYS_WAIT
+--- origsrc/evolution-data-server-2.28.1/servers/exchange/storage/Makefile.am	2009-10-17 18:08:43.000000000 -0500
++++ src/evolution-data-server-2.28.1/servers/exchange/storage/Makefile.am	2009-10-29 17:12:14.089893000 -0500
 @@ -1,6 +1,6 @@
  # Fix the code to not use E_DATA_SERVER_UI_CFLAGS
  
@@ -75,9 +73,9 @@
  WIN32_BOOTSTRAP_LIBS =					\
  	$(top_builddir)/win32/libedataserverui-1.2.la
  endif
---- origsrc/evolution-data-server-2.24.2/win32/Makefile.am	2008-10-13 03:08:25.000000000 -0500
-+++ src/evolution-data-server-2.24.2/win32/Makefile.am	2008-12-14 02:14:42.822015700 -0600
-@@ -2,7 +2,7 @@
+--- origsrc/evolution-data-server-2.28.1/win32/Makefile.am	2009-08-22 14:25:17.000000000 -0500
++++ src/evolution-data-server-2.28.1/win32/Makefile.am	2009-10-29 17:12:14.099893000 -0500
+@@ -2,7 +2,7 @@ EXTRA_DIST =				\
  	dummy.la			\
  	libedataserverui.def
  
@@ -86,7 +84,7 @@
  BOOTSTRAP_LIBS =			\
  	libedataserverui-1.2.la
  endif
-@@ -12,8 +12,8 @@
+@@ -12,8 +12,8 @@ noinst_DATA = $(BOOTSTRAP_LIBS)
  libedataserverui_current_minus_age = `expr $(LIBEDATASERVERUI_CURRENT) - $(LIBEDATASERVERUI_AGE)`
  
  libedataserverui-1.2.la: dummy.la libedataserverui.def
