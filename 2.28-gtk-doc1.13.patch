@@ -1,0 +1,77 @@
+--- origsrc/evolution-data-server-2.28.2/docs/reference/addressbook/libebook/Makefile.am	2009-12-12 06:37:22.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/addressbook/libebook/Makefile.am	2010-01-21 22:36:10.005141200 -0600
+@@ -128,7 +128,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 
+--- origsrc/evolution-data-server-2.28.2/docs/reference/addressbook/libedata-book/Makefile.am	2009-12-12 06:37:22.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/addressbook/libedata-book/Makefile.am	2010-01-21 22:44:11.469679400 -0600
+@@ -127,7 +127,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 
+--- origsrc/evolution-data-server-2.28.2/docs/reference/calendar/libecal/Makefile.am	2009-12-12 06:37:22.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/calendar/libecal/Makefile.am	2010-01-21 22:44:28.005625200 -0600
+@@ -129,7 +129,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 
+--- origsrc/evolution-data-server-2.28.2/docs/reference/calendar/libedata-cal/Makefile.am	2009-12-12 06:37:22.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/calendar/libedata-cal/Makefile.am	2010-01-21 22:44:31.381818300 -0600
+@@ -128,7 +128,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 
+--- origsrc/evolution-data-server-2.28.2/docs/reference/libebackend/Makefile.am	2009-12-12 06:37:22.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/libebackend/Makefile.am	2010-01-21 22:45:19.743584400 -0600
+@@ -122,7 +122,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 
+--- origsrc/evolution-data-server-2.28.2/docs/reference/libedataserver/Makefile.am	2009-12-12 06:37:22.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/libedataserver/Makefile.am	2010-01-21 22:45:23.783815500 -0600
+@@ -121,7 +121,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 
+--- origsrc/evolution-data-server-2.28.2/docs/reference/libedataserverui/Makefile.am	2009-12-12 06:37:23.000000000 -0600
++++ src/evolution-data-server-2.28.2/docs/reference/libedataserverui/Makefile.am	2010-01-21 22:45:26.791987600 -0600
+@@ -126,7 +126,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_
+ 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+ 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+ 	@echo '-- Fixing Crossreferences' 
+-	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
++	cd $(srcdir) && gtkdoc-fixxref --module=$(DOC_MODULE) --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+ 	touch html-build.stamp
+ endif
+ 

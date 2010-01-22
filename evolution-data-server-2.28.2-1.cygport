@@ -8,6 +8,7 @@ SRC_URI=${SRC_URI%.bz2}.gz
 PATCH_URI="
 	2.28-no-undefined.patch
 	2.28-camel-providers-prefix.patch
+	2.28-gtk-doc1.13.patch
 "
 
 libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
