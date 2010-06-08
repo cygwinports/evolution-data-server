@@ -3,22 +3,18 @@ inherit gnome2
 DESCRIPTION="GNOME Evolution data server and libraries"
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
 
-SRC_URI=${SRC_URI%.bz2}.gz
-
 PATCH_URI="
-	2.28-no-undefined.patch
+	2.30-no-undefined.patch
 	2.28-camel-providers-prefix.patch
-	2.28-gtk-doc1.13.patch
 "
 
-libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise exchange-storage gdata gdata-google"
-abis=(14    0        9     7    2          6         11          8             13         3                1     1)
+libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise gdata gdata-google"
+abis=(14    0        9     7    2          7         11          8             13         1     1)
 n=0
 
 PKG_NAMES="${PN}"
 # --exclude=camel-providers*
-evolution_data_server_CONTENTS="--exclude=gtk-doc --exclude=idl
-                                usr/lib/bonobo/ usr/lib/${PN}-1.2/ usr/share/"
+evolution_data_server_CONTENTS="--exclude=gtk-doc usr/lib/${PN}-1.2/ usr/share/"
 for p in ${libs}
 do
 	abi=${abis[((n++))]}
@@ -33,7 +29,6 @@ do
 		camel)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/camel/
 		                                           usr/lib/libcamel-provider-1.2.*" ;;
 		egroupwise)  declare lib${p}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/groupwise/" ;;
-		exchange-storage*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/exchange/" ;;
 		gdata*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/google/lib${p}/" ;;
 		*)  declare lib${p//-/_}1_2_devel_CONTENTS="usr/include/${PN}-${PV[1]}.${PV[2]}/lib${p}/" ;;
 	esac
@@ -45,14 +40,9 @@ do
 		*)  declare lib${p//-/_}1_2_devel_CONTENTS+=" usr/lib/pkgconfig/lib${p}-1.2.pc" ;;
 	esac
 	case ${p} in
-		egroupwise|exchange-storage|gdata|gdata-google)  ;;
+		egroupwise|gdata|gdata-google)  ;;
 		camel)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/gtk-doc/html/camel/" ;;
 		*)  declare lib${p//-/_}1_2_devel_CONTENTS+=" usr/share/gtk-doc/html/lib${p}/" ;;
-	esac
-	case ${p} in
-		edataserver)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/idl/${PN}-1.2/*-DataServer.idl" ;;
-		ebook)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/idl/${PN}-1.2/*-Addressbook.idl" ;;
-		ecal)  declare lib${p}1_2_devel_CONTENTS+=" usr/share/idl/${PN}-1.2/*-Calendar.idl" ;;
 	esac
 done
 unset n
@@ -62,14 +52,13 @@ CYGCONF_ARGS="
 	--libexecdir=/usr/lib/evolution-data-server-1.2
 	--disable-glibtest
 	--enable-nntp
-	--disable-nss --disable-smime
+	--enable-ssl --enable-smime
 	--with-libdb=/usr
 	--with-openldap
-	--without-krb4
 	--with-krb5
 	--with-krb5=/usr
+	--with-nspr-includes=/usr/include/nspr
+	--with-nspr-libs=/usr/lib
+	--with-nss-includes=/usr/include/nss
+	--with-nss-libs=/usr/lib
 "
-#	--with-nspr-includes=/usr/include/nspr
-#	--with-nspr-libs=/usr/lib
-#	--with-nss-includes=/usr/include/nss
-#	--with-nss-libs=/usr/lib
