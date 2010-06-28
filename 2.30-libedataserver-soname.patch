@@ -1,0 +1,21 @@
+libedataserver soname was changed in middle of 2.30 stable branch where 
+it should have been bumped during 2.29:
+
+http://git.gnome.org/browse/evolution-data-server/commit/?id=9930a96
+
+As we have already rebuilt for 2.30.1, revert this as no additional 
+breakage has taken place.
+
+FIXME: remove for 3.0
+
+--- origsrc/evolution-data-server-2.30.2.1/configure.ac	2010-06-28 02:40:49.607440200 -0500
++++ src/evolution-data-server-2.30.2.1/configure.ac	2010-06-28 03:59:32.183556200 -0500
+@@ -55,7 +55,7 @@ EDS_MICRO_VERSION=eds_micro_version
+ dnl ******************************
+ dnl Libtool versioning
+ dnl ******************************
+-LIBEDATASERVER_CURRENT=13
++LIBEDATASERVER_CURRENT=11
+ LIBEDATASERVER_REVISION=1
+ LIBEDATASERVER_AGE=0
+ 

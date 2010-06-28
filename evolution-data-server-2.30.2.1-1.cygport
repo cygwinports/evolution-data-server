@@ -6,6 +6,7 @@ HOMEPAGE="http://www.gnome.org/projects/evolution/"
 PATCH_URI="
 	2.30-no-undefined.patch
 	2.28-camel-providers-prefix.patch
+	2.30-libedataserver-soname.patch
 "
 
 libs="camel ebackend ebook ecal edata-book edata-cal edataserver edataserverui egroupwise gdata gdata-google"
