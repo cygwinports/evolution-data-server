@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: libdb4.5 libedataserver1.2_11 libgcc1 libglib2.0_0
+requires: libdb4.5 libedataserver1.2_14 libgconf2_4 libglib2.0_0
 external-source: evolution-data-server
 sdesc: "GNOME Evolution backend library (runtime)"
 ldesc: "GNOME Evolution backend server and libraries"

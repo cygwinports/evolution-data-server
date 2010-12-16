@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: libedata-cal1.2_7 libdbus1-devel libdbus-glib_1-devel libebackend1.2-devel libecal1.2-devel libedataserver1.2-devel libgconf2-devel libglib2.0-devel libical-devel libxml2-devel
+requires: libedata-cal1.2_10 libebackend1.2-devel libecal1.2-devel libedataserver1.2-devel libgconf2-devel libglib2.0-devel libical-devel
 external-source: evolution-data-server
 sdesc: "GNOME Evolution calendar backend library (libdevel)"
 ldesc: "GNOME Evolution backend server and libraries"

@@ -1,4 +1,4 @@
 category: Gnome Mail
-requires: libdbus1_3 libdbus-glib_1_2 libcamel1.2_14 libdb4.5 libebackend1.2_0 libebook1.2_9 libecal1.2_7 libedata-book1.2_2 libedata-cal1.2_7 libedataserver1.2_11 libegroupwise1.2_13 libgcc1 libgconf2_4 libgdata1.2_1 libgdata-google1.2_1 libglib2.0_0 libgtk2.0_0 libgweather1 libical0 libintl8 libnspr4 libnss3 libopenldap2_3_0 libsoup2.4_1 libxml2
+requires: libcamel1.2_19 libdb4.5 libebackend1.2_0 libebook1.2_10 libecal1.2_8 libedata-book1.2_8 libedata-cal1.2_10 libedataserver1.2_14 libegroupwise1.2_13 libgcc1 libgconf2_4 libgdata7 libglib2.0_0 libgtk2.0_0 libgweather1 libical0 libintl8 libnspr4 libnss3 libopenldap2_3_0 libsoup2.4_1 libxml2
 sdesc: "GNOME Evolution backend server"
 ldesc: "GNOME Evolution backend server and libraries"
