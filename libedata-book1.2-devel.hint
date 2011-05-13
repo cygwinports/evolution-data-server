@@ -1,5 +1,0 @@
-category: Gnome Mail
-requires: libedata-book1.2_8 libebackend1.2-devel libebook1.2-devel libedataserver1.2-devel libglib2.0-devel
-external-source: evolution-data-server
-sdesc: "GNOME Evolution addressbook backend library (libdevel)"
-ldesc: "GNOME Evolution backend server and libraries"
