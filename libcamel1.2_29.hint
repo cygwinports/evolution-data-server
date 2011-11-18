@@ -1,5 +1,5 @@
 category: Gnome Mail
-requires: libcom_err2 libedataserver1.2_14 libgcc1 libglib2.0_0 libgssapi2 libiconv2 libintl8 libnspr4 libnss3 libsqlite3_0
+requires: libcom_err2 libedataserver1.2_15 libgcc1 libglib2.0_0 libgssapi3 libiconv2 libintl8 libnspr4 libnss3 libsqlite3_0
 external-source: evolution-data-server
 sdesc: "GNOME Evolution Camel library (runtime)"
 ldesc: "GNOME Evolution backend server and libraries"

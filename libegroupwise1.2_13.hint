@@ -1,5 +1,0 @@
-category: Gnome Mail
-requires: libedataserver1.2_14 libglib2.0_0 libsoup2.4_1 libxml2
-external-source: evolution-data-server
-sdesc: "GNOME Evolution GroupWise library (runtime)"
-ldesc: "GNOME Evolution backend server and libraries"
