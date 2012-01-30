@@ -48,8 +48,4 @@ CYGCONF_ARGS="
 	--with-libdb=/usr
 	--with-openldap
 	--with-krb5=/usr
-	--with-nspr-includes=/usr/include/nspr
-	--with-nspr-libs=/usr/lib
-	--with-nss-includes=/usr/include/nss
-	--with-nss-libs=/usr/lib
 "
