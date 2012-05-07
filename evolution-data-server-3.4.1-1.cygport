@@ -20,18 +20,18 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(oauth)
 	pkgconfig(sqlite3)"
 
-PKG_NAMES="${PN} libcamel1.2_29 libebackend1.2_1 libebook1.2_12 libecal1.2_10
-           libedata-book1.2_11 libedata-cal1.2_13 libedataserver1.2_15
+PKG_NAMES="${PN} libcamel1.2_33 libebackend1.2_2 libebook1.2_13 libecal1.2_11
+           libedata-book1.2_13 libedata-cal1.2_15 libedataserver1.2_16
            libedataserverui3.0_1 girepository-EDataServer1.2
            libedataserver1.2-devel libedataserverui3.0-devel"
-evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc usr/lib/${PN}/ usr/share/"
-libcamel1_2_29_CONTENTS="usr/bin/cygcamel*-1.2-29.dll"
-libebackend1_2_1_CONTENTS="usr/bin/cygebackend-1.2-1.dll"
-libebook1_2_12_CONTENTS="usr/bin/cygebook-1.2-12.dll"
-libecal1_2_10_CONTENTS="usr/bin/cygecal-1.2-10.dll"
-libedata_book1_2_11_CONTENTS="usr/bin/cygedata-book-1.2-11.dll"
-libedata_cal1_2_13_CONTENTS="usr/bin/cygedata-cal-1.2-13.dll"
-libedataserver1_2_15_CONTENTS="usr/bin/cygedataserver-1.2-15.dll"
+evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc etc/ usr/lib/${PN}/ usr/share/"
+libcamel1_2_33_CONTENTS="usr/bin/cygcamel*-1.2-33.dll"
+libebackend1_2_2_CONTENTS="usr/bin/cygebackend-1.2-2.dll"
+libebook1_2_13_CONTENTS="usr/bin/cygebook-1.2-13.dll"
+libecal1_2_11_CONTENTS="usr/bin/cygecal-1.2-11.dll"
+libedata_book1_2_13_CONTENTS="usr/bin/cygedata-book-1.2-13.dll"
+libedata_cal1_2_15_CONTENTS="usr/bin/cygedata-cal-1.2-15.dll"
+libedataserver1_2_16_CONTENTS="usr/bin/cygedataserver-1.2-16.dll"
 girepository_EDataServer1_2_CONTENTS="usr/*/gir*/*-1.2.*"
 libedataserver1_2_devel_CONTENTS="--exclude=libedataserverui* usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
 libedataserverui3_0_1_CONTENTS="usr/bin/cygedataserverui-3.0-1.dll"
@@ -49,3 +49,5 @@ CYGCONF_ARGS="
 	--with-openldap
 	--with-krb5=/usr
 "
+
+KEEP_LA_FILES="none"
