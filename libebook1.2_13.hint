@@ -1,5 +1,0 @@
-category: Gnome Mail
-requires: libcamel1.2_33 libedataserver1.2_16 libgconf2_4 libglib2.0_0 libintl8 libxml2
-external-source: evolution-data-server
-sdesc: "GNOME Evolution addressbook library (runtime)"
-ldesc: "GNOME Evolution backend server and libraries"

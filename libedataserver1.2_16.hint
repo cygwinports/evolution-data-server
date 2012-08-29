@@ -1,5 +1,0 @@
-category: Gnome Mail
-requires: libgconf2_4 libglib2.0_0 libintl8 libsoup2.4_1 libxml2
-external-source: evolution-data-server
-sdesc: "GNOME Evolution server library (runtime)"
-ldesc: "GNOME Evolution backend server and libraries"
