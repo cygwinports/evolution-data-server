@@ -4,11 +4,11 @@
  noinst_HEADERS =		\
  	camel-sendmail-transport.h
  
--libcamelsendmail_la_LDFLAGS = -avoid-version -module
-+libcamelsendmail_la_LDFLAGS = -avoid-version -module $(NO_UNDEFINED)
- 
- libcamelsendmail_la_LIBADD = \
- 	$(top_builddir)/camel/libcamel-1.2.la				\
+-libcamelsendmail_la_LDFLAGS = -avoid-version -module \
++libcamelsendmail_la_LDFLAGS = -avoid-version -module $(NO_UNDEFINED) \
+ 	$(CODE_COVERAGE_LDFLAGS) \
+ 	$(NULL)
+
 --- origsrc/evolution-data-server-2.30.1/configure.ac	2010-04-05 19:07:50.000000000 -0500
 +++ src/evolution-data-server-2.30.1/configure.ac	2010-06-07 08:20:43.048152400 -0500
 @@ -247,6 +247,13 @@ dnl Check for Win32

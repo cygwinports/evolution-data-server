@@ -1,6 +1,9 @@
 inherit gnome2
 
-CATEGORY="Gnome"
+NAME="evolution-data-server"
+VERSION=3.6.2
+RELEASE=1
+CATEGORY="GNOME"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
 programs that work with contacts, tasks, and calendar information. It was
@@ -15,7 +18,6 @@ PATCH_URI="
 "
 
 DEPEND="gnome-common gtk-doc
-	pkgconfig(gconf-2.0)
 	pkgconfig(gnome-keyring-1)
 	pkgconfig(gtk+-3.0)
 	pkgconfig(goa-1.0)
@@ -25,31 +27,32 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(oauth)
 	pkgconfig(sqlite3)"
 
-PKG_NAMES="${PN} libcamel1.2_33 libebackend1.2_2 libebook1.2_13 libecal1.2_11
-           libedata-book1.2_13 libedata-cal1.2_15 libedataserver1.2_16
-           libedataserverui3.0_1 girepository-EDataServer1.2
+PKG_NAMES="${PN} libcamel1.2_40 libebackend1.2_5 libebook1.2_14 libecal1.2_15
+           libedata-book1.2_15 libedata-cal1.2_18 libedataserver1.2_17
+           libedataserverui3.0_4 girepository-EDataServer1.2
            libedataserver1.2-devel libedataserverui3.0-devel"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc etc/ usr/lib/${PN}/ usr/share/"
-libcamel1_2_33_SUMMARY="${SUMMARY} network protocol library"
-libcamel1_2_33_CONTENTS="usr/bin/cygcamel*-1.2-33.dll"
-libebackend1_2_2_SUMMARY="${SUMMARY} backend library"
-libebackend1_2_2_CONTENTS="usr/bin/cygebackend-1.2-2.dll"
-libebook1_2_13_SUMMARY="${SUMMARY} addressbook library"
-libebook1_2_13_CONTENTS="usr/bin/cygebook-1.2-13.dll"
-libecal1_2_11_SUMMARY="${SUMMARY} calendar library"
-libecal1_2_11_CONTENTS="usr/bin/cygecal-1.2-11.dll"
-libedata_book1_2_13_SUMMARY="${SUMMARY} addressbook backend library (runtime)"
-libedata_book1_2_13_CONTENTS="usr/bin/cygedata-book-1.2-13.dll"
-libedata_cal1_2_15_SUMMARY="${SUMMARY} calendar backend library (runtime)"
-libedata_cal1_2_15_CONTENTS="usr/bin/cygedata-cal-1.2-15.dll"
-libedataserver1_2_16_SUMMARY="${SUMMARY} library (runtime)"
-libedataserver1_2_16_CONTENTS="usr/bin/cygedataserver-1.2-16.dll"
+libcamel1_2_40_SUMMARY="${SUMMARY} network protocol library"
+libcamel1_2_40_CONTENTS="usr/bin/cygcamel*-1.2-40.dll"
+libebackend1_2_5_SUMMARY="${SUMMARY} backend library"
+libebackend1_2_5_CONTENTS="usr/bin/cygebackend-1.2-5.dll"
+libebook1_2_14_SUMMARY="${SUMMARY} addressbook library"
+libebook1_2_14_CONTENTS="usr/bin/cygebook-1.2-14.dll"
+libecal1_2_15_SUMMARY="${SUMMARY} calendar library"
+libecal1_2_15_CONTENTS="usr/bin/cygecal-1.2-15.dll"
+libedata_book1_2_15_SUMMARY="${SUMMARY} addressbook backend library (runtime)"
+libedata_book1_2_15_CONTENTS="usr/bin/cygedata-book-1.2-15.dll"
+libedata_cal1_2_18_SUMMARY="${SUMMARY} calendar backend library (runtime)"
+libedata_cal1_2_18_CONTENTS="usr/bin/cygedata-cal-1.2-18.dll"
+libedataserver1_2_17_SUMMARY="${SUMMARY} library (runtime)"
+libedataserver1_2_17_REQUIRES=${PN}
+libedataserver1_2_17_CONTENTS="usr/bin/cygedataserver-1.2-17.dll"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (GObject Introspection)"
 girepository_EDataServer1_2_CONTENTS="usr/*/gir*/*-1.2.*"
 libedataserver1_2_devel_SUMMARY="${SUMMARY} libraries (libdevel)"
 libedataserver1_2_devel_CONTENTS="--exclude=libedataserverui* usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
-libedataserverui3_0_1_SUMMARY="${SUMMARY} UI library (runtime)"
-libedataserverui3_0_1_CONTENTS="usr/bin/cygedataserverui-3.0-1.dll"
+libedataserverui3_0_4_SUMMARY="${SUMMARY} UI library (runtime)"
+libedataserverui3_0_4_CONTENTS="usr/bin/cygedataserverui-3.0-4.dll"
 libedataserverui3_0_devel_SUMMARY="${SUMMARY} UI library (development)"
 libedataserverui3_0_devel_CONTENTS="usr/include/*/libedataserverui/
                                     usr/lib/libedataserverui-3.0.*
@@ -66,4 +69,3 @@ CYGCONF_ARGS="
 	--with-krb5=/usr
 "
 
-KEEP_LA_FILES="none"
