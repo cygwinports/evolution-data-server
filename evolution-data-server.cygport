@@ -29,9 +29,10 @@ DEPEND="gnome-common gtk-doc
 
 PKG_NAMES="${PN} libcamel1.2_40 libebackend1.2_5 libebook1.2_14 libecal1.2_15
            libedata-book1.2_15 libedata-cal1.2_18 libedataserver1.2_17
-           libedataserverui3.0_4 girepository-EDataServer1.2
+           libedataserverui3.0_4 girepository-EDataServer1.2 vala-libedataserver1.2
            libedataserver1.2-devel libedataserverui3.0-devel"
-evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc etc/ usr/lib/${PN}/ usr/share/"
+evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
+                                etc/ usr/lib/${PN}/ usr/share/"
 libcamel1_2_40_SUMMARY="${SUMMARY} network protocol library"
 libcamel1_2_40_CONTENTS="usr/bin/cygcamel*-1.2-40.dll"
 libebackend1_2_5_SUMMARY="${SUMMARY} backend library"
@@ -49,6 +50,8 @@ libedataserver1_2_17_REQUIRES=${PN}
 libedataserver1_2_17_CONTENTS="usr/bin/cygedataserver-1.2-17.dll"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (GObject Introspection)"
 girepository_EDataServer1_2_CONTENTS="usr/*/gir*/*-1.2.*"
+girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (Vala bindings)"
+vala_libedataserver1_2_CONTENTS="usr/share/vala/"
 libedataserver1_2_devel_SUMMARY="${SUMMARY} libraries (libdevel)"
 libedataserver1_2_devel_CONTENTS="--exclude=libedataserverui* usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
 libedataserverui3_0_4_SUMMARY="${SUMMARY} UI library (runtime)"
@@ -64,6 +67,7 @@ CYGCONF_ARGS="
 	--disable-glibtest
 	--enable-nntp
 	--enable-ssl --enable-smime
+	--enable-vala-bindings
 	--with-libdb=/usr
 	--with-openldap
 	--with-krb5=/usr
