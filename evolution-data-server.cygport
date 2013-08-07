@@ -1,9 +1,9 @@
 inherit gnome2
 
 NAME="evolution-data-server"
-VERSION=3.6.4
+VERSION=3.8.4
 RELEASE=1
-CATEGORY="GNOME"
+CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
 programs that work with contacts, tasks, and calendar information. It was
@@ -14,7 +14,6 @@ HOMEPAGE="http://www.gnome.org/projects/evolution/"
 PATCH_URI="
 	2.30-no-undefined.patch
 	2.28-camel-providers-prefix.patch
-	3.0-gtk-doc-version.patch
 "
 
 DEPEND="gnome-common gtk-doc
@@ -27,49 +26,44 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(oauth)
 	pkgconfig(sqlite3)"
 
-PKG_NAMES="${PN} libcamel1.2_40 libebackend1.2_5 libebook1.2_14 libecal1.2_15
-           libedata-book1.2_15 libedata-cal1.2_18 libedataserver1.2_17
-           libedataserverui3.0_4 girepository-EDataServer1.2 vala-libedataserver1.2
-           libedataserver1.2-devel libedataserverui3.0-devel"
+PKG_NAMES="${NAME} libcamel1.2_43 libebackend1.2_6 libebook1.2_14
+           libebook-contacts1.2_0 libecal1.2_15 libedata-book1.2_17
+           libedata-cal1.2_20 libedataserver1.2_17 girepository-EDataServer1.2
+           vala-libedataserver1.2 libedataserver1.2-devel"
+evolution_data_server_CATEGORY="Mail"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
-                                etc/ usr/lib/${PN}/ usr/share/"
-libcamel1_2_40_SUMMARY="${SUMMARY} network protocol library"
-libcamel1_2_40_CONTENTS="usr/bin/cygcamel*-1.2-40.dll"
-libebackend1_2_5_SUMMARY="${SUMMARY} backend library"
-libebackend1_2_5_CONTENTS="usr/bin/cygebackend-1.2-5.dll"
+                                etc/ usr/lib/${NAME}/ usr/libexec/ usr/share/"
+libcamel1_2_43_SUMMARY="${SUMMARY} network protocol library"
+libcamel1_2_43_CONTENTS="usr/bin/cygcamel-1.2-43.dll"
+libebackend1_2_6_SUMMARY="${SUMMARY} backend library"
+libebackend1_2_6_CONTENTS="usr/bin/cygebackend-1.2-6.dll"
 libebook1_2_14_SUMMARY="${SUMMARY} addressbook library"
 libebook1_2_14_CONTENTS="usr/bin/cygebook-1.2-14.dll"
+libebook_contacts1_2_0_SUMMARY="${SUMMARY} contacts library"
+libebook_contacts1_2_0_CONTENTS="usr/bin/cygebook-contacts-1.2-0.dll"
 libecal1_2_15_SUMMARY="${SUMMARY} calendar library"
 libecal1_2_15_CONTENTS="usr/bin/cygecal-1.2-15.dll"
-libedata_book1_2_15_SUMMARY="${SUMMARY} addressbook backend library (runtime)"
-libedata_book1_2_15_CONTENTS="usr/bin/cygedata-book-1.2-15.dll"
-libedata_cal1_2_18_SUMMARY="${SUMMARY} calendar backend library (runtime)"
-libedata_cal1_2_18_CONTENTS="usr/bin/cygedata-cal-1.2-18.dll"
+libedata_book1_2_17_SUMMARY="${SUMMARY} addressbook backend library (runtime)"
+libedata_book1_2_17_CONTENTS="usr/bin/cygedata-book-1.2-17.dll"
+libedata_cal1_2_20_SUMMARY="${SUMMARY} calendar backend library (runtime)"
+libedata_cal1_2_20_CONTENTS="usr/bin/cygedata-cal-1.2-20.dll"
 libedataserver1_2_17_SUMMARY="${SUMMARY} library (runtime)"
-libedataserver1_2_17_REQUIRES=${PN}
+libedataserver1_2_17_REQUIRES=${NAME}
 libedataserver1_2_17_CONTENTS="usr/bin/cygedataserver-1.2-17.dll"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (GObject Introspection)"
 girepository_EDataServer1_2_CONTENTS="usr/*/gir*/*-1.2.*"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (Vala bindings)"
 vala_libedataserver1_2_CONTENTS="usr/share/vala/"
 libedataserver1_2_devel_SUMMARY="${SUMMARY} libraries (libdevel)"
-libedataserver1_2_devel_CONTENTS="--exclude=libedataserverui* usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
-libedataserverui3_0_4_SUMMARY="${SUMMARY} UI library (runtime)"
-libedataserverui3_0_4_CONTENTS="usr/bin/cygedataserverui-3.0-4.dll"
-libedataserverui3_0_devel_SUMMARY="${SUMMARY} UI library (development)"
-libedataserverui3_0_devel_CONTENTS="usr/include/*/libedataserverui/
-                                    usr/lib/libedataserverui-3.0.*
-                                    usr/lib/pkgconfig/libedataserverui-3.0.pc
-                                    usr/share/gtk-doc/html/libedataserverui-3.0/"
+libedataserver1_2_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
 
 CYGCONF_ARGS="
-	--libexecdir=/usr/lib/evolution-data-server
 	--disable-glibtest
 	--enable-nntp
 	--enable-ssl --enable-smime
+	--disable-uoa
 	--enable-vala-bindings
 	--with-libdb=/usr
 	--with-openldap
 	--with-krb5=/usr
 "
-
