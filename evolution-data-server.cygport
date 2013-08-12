@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="evolution-data-server"
-VERSION=3.8.4
+VERSION=3.8.5
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
@@ -29,7 +29,7 @@ DEPEND="gnome-common gtk-doc
 PKG_NAMES="${NAME} libcamel1.2_43 libebackend1.2_6 libebook1.2_14
            libebook-contacts1.2_0 libecal1.2_15 libedata-book1.2_17
            libedata-cal1.2_20 libedataserver1.2_17 girepository-EDataServer1.2
-           vala-libedataserver1.2 libedataserver1.2-devel"
+           vala-libedataserver1.2 libedataserver1.2-devel libedataserver1.2-doc"
 evolution_data_server_CATEGORY="Mail"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
                                 etc/ usr/lib/${NAME}/ usr/libexec/ usr/share/"
@@ -55,7 +55,10 @@ girepository_EDataServer1_2_CONTENTS="usr/*/gir*/*-1.2.*"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (Vala bindings)"
 vala_libedataserver1_2_CONTENTS="usr/share/vala/"
 libedataserver1_2_devel_SUMMARY="${SUMMARY} libraries (libdevel)"
-libedataserver1_2_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
+libedataserver1_2_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+libedataserver1_2_doc_CATEGORY="Doc"
+libedataserver1_2_doc_SUMMARY="API docs for ${SUMMARY} libraries"
+libedataserver1_2_doc_CONTENTS="usr/share/gtk-doc/"
 
 CYGCONF_ARGS="
 	--disable-glibtest
