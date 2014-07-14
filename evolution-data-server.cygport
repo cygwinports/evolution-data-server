@@ -1,8 +1,8 @@
 inherit gnome2
 
 NAME="evolution-data-server"
-VERSION=3.8.5
-RELEASE=2
+VERSION=3.10.4
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
@@ -26,30 +26,30 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(oauth)
 	pkgconfig(sqlite3)"
 
-PKG_NAMES="${NAME} libcamel1.2_43 libebackend1.2_6 libebook1.2_14
-           libebook-contacts1.2_0 libecal1.2_15 libedata-book1.2_17
-           libedata-cal1.2_20 libedataserver1.2_17 girepository-EDataServer1.2
+PKG_NAMES="${NAME} libcamel1.2_45 libebackend1.2_7 libebook1.2_14
+           libebook-contacts1.2_0 libecal1.2_16 libedata-book1.2_20
+           libedata-cal1.2_23 libedataserver1.2_18 girepository-EDataServer1.2
            vala-libedataserver1.2 libedataserver1.2-devel libedataserver1.2-doc"
 evolution_data_server_CATEGORY="Mail"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
                                 etc/ usr/lib/${NAME}/ usr/libexec/ usr/share/"
-libcamel1_2_43_SUMMARY="${SUMMARY} network protocol library"
-libcamel1_2_43_CONTENTS="usr/bin/cygcamel-1.2-43.dll"
-libebackend1_2_6_SUMMARY="${SUMMARY} backend library"
-libebackend1_2_6_CONTENTS="usr/bin/cygebackend-1.2-6.dll"
+libcamel1_2_45_SUMMARY="${SUMMARY} network protocol library"
+libcamel1_2_45_CONTENTS="usr/bin/cygcamel-1.2-45.dll"
+libebackend1_2_7_SUMMARY="${SUMMARY} backend library"
+libebackend1_2_7_CONTENTS="usr/bin/cygebackend-1.2-7.dll"
 libebook1_2_14_SUMMARY="${SUMMARY} addressbook library"
 libebook1_2_14_CONTENTS="usr/bin/cygebook-1.2-14.dll"
 libebook_contacts1_2_0_SUMMARY="${SUMMARY} contacts library"
 libebook_contacts1_2_0_CONTENTS="usr/bin/cygebook-contacts-1.2-0.dll"
-libecal1_2_15_SUMMARY="${SUMMARY} calendar library"
-libecal1_2_15_CONTENTS="usr/bin/cygecal-1.2-15.dll"
-libedata_book1_2_17_SUMMARY="${SUMMARY} addressbook backend library (runtime)"
-libedata_book1_2_17_CONTENTS="usr/bin/cygedata-book-1.2-17.dll"
-libedata_cal1_2_20_SUMMARY="${SUMMARY} calendar backend library (runtime)"
-libedata_cal1_2_20_CONTENTS="usr/bin/cygedata-cal-1.2-20.dll"
-libedataserver1_2_17_SUMMARY="${SUMMARY} library (runtime)"
-libedataserver1_2_17_REQUIRES=${NAME}
-libedataserver1_2_17_CONTENTS="usr/bin/cygedataserver-1.2-17.dll"
+libecal1_2_16_SUMMARY="${SUMMARY} calendar library"
+libecal1_2_16_CONTENTS="usr/bin/cygecal-1.2-16.dll"
+libedata_book1_2_20_SUMMARY="${SUMMARY} addressbook backend library (runtime)"
+libedata_book1_2_20_CONTENTS="usr/bin/cygedata-book-1.2-20.dll"
+libedata_cal1_2_23_SUMMARY="${SUMMARY} calendar backend library (runtime)"
+libedata_cal1_2_23_CONTENTS="usr/bin/cygedata-cal-1.2-23.dll"
+libedataserver1_2_18_SUMMARY="${SUMMARY} library (runtime)"
+libedataserver1_2_18_REQUIRES=${NAME}
+libedataserver1_2_18_CONTENTS="usr/bin/cygedataserver-1.2-18.dll"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (GObject Introspection)"
 girepository_EDataServer1_2_CONTENTS="usr/*/gir*/*-1.2.*"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (Vala bindings)"
