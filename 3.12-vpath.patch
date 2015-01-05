@@ -1,0 +1,20 @@
+--- origsrc/evolution-data-server-3.12.9/docs/reference/eds/Makefile.am	2014-03-24 04:07:52.000000000 -0500
++++ src/evolution-data-server-3.12.9/docs/reference/eds/Makefile.am	2015-01-05 00:14:04.628571000 -0600
+@@ -54,7 +54,7 @@ FIXXREF_OPTIONS=
+ HFILE_GLOB = \
+ 	$(top_srcdir)/libedataserver/*.h		\
+ 	$(top_srcdir)/libebackend/*.h			\
+-	$(top_srcdir)/private/*.h			\
++	$(top_builddir)/private/*.h			\
+ 	$(top_srcdir)/addressbook/libebook-contacts/*.h	\
+ 	$(top_srcdir)/addressbook/libebook/*.h		\
+ 	$(top_srcdir)/addressbook/libedata-book/*.h	\
+@@ -65,7 +65,7 @@ HFILE_GLOB = \
+ CFILE_GLOB = \
+ 	$(top_srcdir)/libedataserver/*.c		\
+ 	$(top_srcdir)/libebackend/*.c			\
+-	$(top_srcdir)/private/*.c			\
++	$(top_builddir)/private/*.c			\
+ 	$(top_srcdir)/addressbook/libebook-contacts/*.c	\
+ 	$(top_srcdir)/addressbook/libebook/*.c		\
+ 	$(top_srcdir)/addressbook/libedata-book/*.c	\

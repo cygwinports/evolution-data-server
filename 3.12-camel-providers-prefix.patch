@@ -1,0 +1,17 @@
+--- origsrc/evolution-data-server-3.12.9/camel/camel-provider.c	2014-03-24 04:07:52.000000000 -0500
++++ src/evolution-data-server-3.12.9/camel/camel-provider.c	2015-01-04 23:17:19.000000000 -0600
+@@ -208,6 +208,14 @@ camel_provider_init (void)
+ 			continue;
+ 		}
+ 
++#ifdef G_WITH_CYGWIN
++		/* On Cygwin, libtool substitutes the "lib" prefix with "cyg" */
++		p = strrchr (name, '/');
++		p[1] = 'c';
++		p[2] = 'y';
++		p[3] = 'g';
++#endif
++
+ 		p = strrchr (name, '.');
+ 		if (p)
+ 			strcpy (p, "." G_MODULE_SUFFIX);

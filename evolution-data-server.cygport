@@ -1,8 +1,8 @@
 inherit gnome2
 
 NAME="evolution-data-server"
-VERSION=3.10.4
-RELEASE=2
+VERSION=3.12.9
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
@@ -12,13 +12,12 @@ packages as well."
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
 
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.10.4-calendar-get-timezone-check.patch?h=f20
-	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.10.4-weather-calendar-crash.patch?h=f20
-	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.10.4-crash-ldap-stop-view.patch?h=f20
-	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.10.4-google-caldav-login.patch?h=f20
-	2.30-no-undefined.patch
-	2.28-camel-providers-prefix.patch
-	3.10-ebackend-path.patch
+	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.12.9-gpg-check-crash-on-error.patch?h=f21
+	3.12-no-undefined.patch
+	3.12-camel-providers-prefix.patch
+	3.12-ebackend-path.patch
+	3.12-link-cxx.patch
+	3.12-vpath.patch
 "
 
 DISTCLEANFILES="*/*/*.gir"
@@ -33,15 +32,15 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(oauth)
 	pkgconfig(sqlite3)"
 
-PKG_NAMES="${NAME} libcamel1.2_45 libebackend1.2_7 libebook1.2_14
+PKG_NAMES="${NAME} libcamel1.2_49 libebackend1.2_7 libebook1.2_14
            libebook-contacts1.2_0 libecal1.2_16 libedata-book1.2_20
            libedata-cal1.2_23 libedataserver1.2_18 girepository-EDataServer1.2
            vala-libedataserver1.2 libedataserver1.2-devel libedataserver1.2-doc"
 evolution_data_server_CATEGORY="Mail"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
                                 etc/ usr/lib/${NAME}/ usr/libexec/ usr/share/"
-libcamel1_2_45_SUMMARY="${SUMMARY} network protocol library"
-libcamel1_2_45_CONTENTS="usr/bin/cygcamel-1.2-45.dll"
+libcamel1_2_49_SUMMARY="${SUMMARY} network protocol library"
+libcamel1_2_49_CONTENTS="usr/bin/cygcamel-1.2-49.dll"
 libebackend1_2_7_SUMMARY="${SUMMARY} backend library"
 libebackend1_2_7_CONTENTS="usr/bin/cygebackend-1.2-7.dll"
 libebook1_2_14_SUMMARY="${SUMMARY} addressbook library"
@@ -70,8 +69,7 @@ libedataserver1_2_doc_CONTENTS="usr/share/gtk-doc/"
 
 CYGCONF_ARGS="
 	--disable-glibtest
-	--enable-nntp
-	--enable-ssl --enable-smime
+	--enable-smime
 	--disable-uoa
 	--enable-vala-bindings
 	--with-libdb=/usr

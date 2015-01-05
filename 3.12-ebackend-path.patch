@@ -1,0 +1,18 @@
+--- origsrc/evolution-data-server-3.12.9/addressbook/backends/file/e-book-backend-file.c	2014-06-01 14:17:18.000000000 -0500
++++ src/evolution-data-server-3.12.9/addressbook/backends/file/e-book-backend-file.c	2015-01-04 23:21:21.451898500 -0600
+@@ -1778,11 +1778,11 @@ book_backend_file_get_direct_book (EBook
+ 
+ 	/* Support in-tree testing / relocated modules */
+ 	if (modules_env) {
+-		backend_path = g_build_filename (
+-			modules_env, "libebookbackendfile.so", NULL);
++		backend_path = g_module_build_path (
++			modules_env, "ebookbackendfile");
+ 	} else {
+-		backend_path = g_build_filename (
+-			BACKENDDIR, "libebookbackendfile.so", NULL);
++		backend_path = g_module_build_path (
++			BACKENDDIR, "ebookbackendfile");
+ 	}
+ 
+ 	direct = e_data_book_direct_new (

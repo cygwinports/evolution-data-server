@@ -1,0 +1,36 @@
+--- origsrc/evolution-data-server-3.12.9/camel/providers/sendmail/Makefile.am	2014-03-24 04:07:52.000000000 -0500
++++ src/evolution-data-server-3.12.9/camel/providers/sendmail/Makefile.am	2015-01-04 23:19:19.736942700 -0600
+@@ -23,6 +23,7 @@ libcamelsendmail_la_SOURCES = \
+ 	$(NULL)
+ 
+ libcamelsendmail_la_LDFLAGS = -avoid-version -module \
++	$(NO_UNDEFINED) \
+ 	$(CODE_COVERAGE_LDFLAGS) \
+ 	$(NULL)
+ 
+--- origsrc/evolution-data-server-3.12.9/configure.ac	2014-11-10 00:49:01.000000000 -0600
++++ src/evolution-data-server-3.12.9/configure.ac	2015-01-04 23:19:19.740943200 -0600
+@@ -327,6 +327,13 @@ dnl Check for Win32
+ dnl ******************************
+ AC_MSG_CHECKING([for Win32])
+ case "$host" in
++*-cygwin*)
++	os_win32='no'
++	NO_UNDEFINED='-no-undefined'
++	SOCKET_LIBS=''
++	DL_LIB=''
++	LIBEXECDIR_IN_SERVER_FILE="$libexecdir"
++	;;
+ *-mingw*)
+ 	os_win32='yes'
+ 	NO_UNDEFINED='-no-undefined'
+--- origsrc/evolution-data-server-3.12.9/libebackend/Makefile.am	2014-07-16 04:32:32.000000000 -0500
++++ src/evolution-data-server-3.12.9/libebackend/Makefile.am	2015-01-04 23:19:19.744443700 -0600
+@@ -81,7 +81,6 @@ libebackend_1_2_la_SOURCES = \
+ 
+ libebackend_1_2_la_LIBADD = \
+ 	$(top_builddir)/libedataserver/libedataserver-1.2.la \
+-	$(top_builddir)/private/libedbus-private.la \
+ 	$(E_BACKEND_LIBS) \
+ 	$(CAMEL_LIBS) \
+ 	$(SQLITE3_LIBS) \
