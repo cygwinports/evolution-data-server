@@ -12,7 +12,6 @@ packages as well."
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
 
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.12.9-gpg-check-crash-on-error.patch?h=f21
 	3.12-no-undefined.patch
 	3.12-camel-providers-prefix.patch
 	3.12-ebackend-path.patch
