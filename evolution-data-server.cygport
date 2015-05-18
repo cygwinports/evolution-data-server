@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="evolution-data-server"
 VERSION=3.12.11
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
@@ -12,6 +12,8 @@ packages as well."
 HOMEPAGE="http://www.gnome.org/projects/evolution/"
 
 PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.12.11-book-sqlite-foreign-key-fix.patch?h=f21
+	http://pkgs.fedoraproject.org/cgit/evolution-data-server.git/plain/evolution-data-server-3.12.11-goa-sources-auth-method.patch?h=f21
 	3.12-no-undefined.patch
 	3.12-camel-providers-prefix.patch
 	3.12-ebackend-path.patch
