@@ -1,9 +1,9 @@
 --- origsrc/evolution-data-server-3.12.9/libedataserver/Makefile.am	2014-07-16 04:32:32.000000000 -0500
 +++ src/evolution-data-server-3.12.9/libedataserver/Makefile.am	2015-01-04 23:46:01.769875000 -0600
 @@ -186,11 +186,7 @@ libedataserver_private_la_SOURCES = \
- 	$(AM_CXXFLAGS) \
- 	$(SHARED_COMPILER_FLAGS)
- 
+ 	e-transliterator-private.cpp \
+ 	$(NULL)
+ libedataserver_private_la_CPPFLAGS = $(libedataserver_1_2_la_CPPFLAGS)
 -if OS_WIN32
  libedataserver_1_2_la_LIBADD += libedataserver-private.la -lstdc++
 -else
