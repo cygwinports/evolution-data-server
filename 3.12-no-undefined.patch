@@ -24,13 +24,3 @@
  *-mingw*)
  	os_win32='yes'
  	NO_UNDEFINED='-no-undefined'
---- origsrc/evolution-data-server-3.12.9/libebackend/Makefile.am	2014-07-16 04:32:32.000000000 -0500
-+++ src/evolution-data-server-3.12.9/libebackend/Makefile.am	2015-01-04 23:19:19.744443700 -0600
-@@ -81,7 +81,6 @@ libebackend_1_2_la_SOURCES = \
- 
- libebackend_1_2_la_LIBADD = \
- 	$(top_builddir)/libedataserver/libedataserver-1.2.la \
--	$(top_builddir)/private/libedbus-private.la \
- 	$(E_BACKEND_LIBS) \
- 	$(CAMEL_LIBS) \
- 	$(SQLITE3_LIBS) \
