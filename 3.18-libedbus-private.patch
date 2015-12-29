@@ -2,7 +2,12 @@ Revert commits a279016 60d719f
 
 --- origsrc/evolution-data-server-3.18.2/addressbook/libebook/Makefile.am	2015-03-23 01:41:04.000000000 -0500
 +++ src/evolution-data-server-3.18.2/addressbook/libebook/Makefile.am	2015-11-20 01:16:24.056861700 -0600
-@@ -59,7 +59,6 @@ libebook_1_2_la_LIBADD = \
+@@ -54,10 +54,8 @@ libebook_1_2_la_SOURCES = \
+ libebook_1_2_la_LIBADD = \
+ 	$(top_builddir)/addressbook/libebook-contacts/libebook-contacts-1.2.la \
+ 	$(top_builddir)/addressbook/libedata-book/libedata-book-1.2.la \
+-	$(top_builddir)/addressbook/libegdbus/libegdbus-book.la \
+ 	$(top_builddir)/camel/libcamel-1.2.la \
  	$(top_builddir)/libedataserver/libedataserver-1.2.la \
  	$(top_builddir)/libebackend/libebackend-1.2.la \
  	$(top_builddir)/addressbook/libedata-book/libedata-book-1.2.la \
@@ -40,8 +45,11 @@ Revert commits a279016 60d719f
  	$(NULL)
 --- origsrc/evolution-data-server-3.18.2/calendar/libedata-cal/Makefile.am	2015-03-23 01:41:04.000000000 -0500
 +++ src/evolution-data-server-3.18.2/calendar/libedata-cal/Makefile.am	2015-11-20 01:20:06.085555700 -0600
-@@ -40,7 +40,6 @@ libedata_cal_1_2_la_LIBADD = \
- 	$(top_builddir)/calendar/libegdbus/libegdbus-cal.la \
+@@ -37,10 +37,8 @@ libedata_cal_1_2_la_SOURCES = \
+ 
+ libedata_cal_1_2_la_LIBADD = \
+ 	$(top_builddir)/calendar/libecal/libecal-1.2.la \
+-	$(top_builddir)/calendar/libegdbus/libegdbus-cal.la \
  	$(top_builddir)/libedataserver/libedataserver-1.2.la \
  	$(top_builddir)/libebackend/libebackend-1.2.la \
 -	$(top_builddir)/private/libedbus-private.la \
