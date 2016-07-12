@@ -1,7 +1,7 @@
 inherit gnome2
 
 NAME="evolution-data-server"
-VERSION=3.18.3
+VERSION=3.18.5
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
@@ -39,7 +39,7 @@ PKG_NAMES="${NAME} libcamel1.2_54 libebackend1.2_10 libebook1.2_16
            libedataserver1.2-devel libedataserver1.2-doc"
 evolution_data_server_CATEGORY="Mail"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
-                                etc/ usr/lib/${NAME}/ usr/libexec/ usr/share/"
+                                usr/lib/${NAME}/ usr/libexec/ usr/share/"
 libcamel1_2_54_SUMMARY="${SUMMARY} network protocol library"
 libcamel1_2_54_CONTENTS="usr/bin/cygcamel-1.2-54.dll"
 libebackend1_2_10_SUMMARY="${SUMMARY} backend library"
