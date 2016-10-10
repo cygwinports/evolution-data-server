@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="evolution-data-server"
 VERSION=3.18.5
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
