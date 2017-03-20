@@ -1,8 +1,8 @@
 inherit gnome2
 
 NAME="evolution-data-server"
-VERSION=3.18.5
-RELEASE=2
+VERSION=3.20.6
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
@@ -16,9 +16,10 @@ PATCH_URI="
 	3.12-camel-providers-prefix.patch
 	3.12-ebackend-path.patch
 	3.12-link-cxx.patch
-	3.12-vpath.patch
-	3.18-libedbus-private.patch
+	3.20-libedbus-private.patch
+	3.20-webkit-dep.patch
 "
+#	3.18-libedbus-private.patch
 
 DISTCLEANFILES="*/*/*.gir"
 
@@ -32,7 +33,7 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(oauth)
 	pkgconfig(sqlite3)"
 
-PKG_NAMES="${NAME} libcamel1.2_54 libebackend1.2_10 libebook1.2_16
+PKG_NAMES="${NAME} libcamel1.2_57 libebackend1.2_10 libebook1.2_16
            libebook-contacts1.2_2 libecal1.2_19 libedata-book1.2_25
            libedata-cal1.2_28 libedataserver1.2_21 libedataserverui1.2_1
            girepository-EDataServer1.2 vala-libedataserver1.2
@@ -40,8 +41,8 @@ PKG_NAMES="${NAME} libcamel1.2_54 libebackend1.2_10 libebook1.2_16
 evolution_data_server_CATEGORY="Mail"
 evolution_data_server_CONTENTS="--exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
                                 usr/lib/${NAME}/ usr/libexec/ usr/share/"
-libcamel1_2_54_SUMMARY="${SUMMARY} network protocol library"
-libcamel1_2_54_CONTENTS="usr/bin/cygcamel-1.2-54.dll"
+libcamel1_2_57_SUMMARY="${SUMMARY} network protocol library"
+libcamel1_2_57_CONTENTS="usr/bin/cygcamel-1.2-57.dll"
 libebackend1_2_10_SUMMARY="${SUMMARY} backend library"
 libebackend1_2_10_CONTENTS="usr/bin/cygebackend-1.2-10.dll"
 libebook1_2_16_SUMMARY="${SUMMARY} addressbook library"
@@ -57,7 +58,10 @@ libedata_cal1_2_28_SUMMARY="${SUMMARY} calendar backend library (runtime)"
 libedata_cal1_2_28_CONTENTS="usr/bin/cygedata-cal-1.2-28.dll"
 libedataserver1_2_21_SUMMARY="${SUMMARY} library (runtime)"
 libedataserver1_2_21_REQUIRES=${NAME}
-libedataserver1_2_21_CONTENTS="usr/bin/cygedataserver-1.2-21.dll"
+libedataserver1_2_21_CONTENTS="
+	usr/bin/cygedataserver-1.2-21.dll
+	usr/bin/cygedbus-private-*.dll
+"
 libedataserverui1_2_1_SUMMARY="${SUMMARY} UI library (runtime)"
 libedataserverui1_2_1_CONTENTS="usr/bin/cygedataserverui-1.2-1.dll"
 girepository_EDataServer1_2_SUMMARY="${SUMMARY} libraries (GObject Introspection)"
