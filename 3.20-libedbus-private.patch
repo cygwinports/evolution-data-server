@@ -1,0 +1,11 @@
+--- origsrc/evolution-data-server-3.20.6/private/Makefile.am	2016-11-30 07:16:05.000000000 -0600
++++ src/evolution-data-server-3.20.6/private/Makefile.am	2017-03-06 23:17:38.860060900 -0600
+@@ -225,7 +225,7 @@ libedbus_private_la_LIBADD = \
+ 	$(NULL)
+ 
+ libedbus_private_la_LDFLAGS = \
+-	-avoid-version \
++	-release $(BASE_VERSION) \
+ 	$(NO_UNDEFINED) \
+ 	$(CODE_COVERAGE_LDFLAGS) \
+ 	$(NULL)
