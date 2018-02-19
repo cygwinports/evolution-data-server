@@ -1,0 +1,194 @@
+commit e57f8ccb34400c968ab79d59d6a4e6ba6cbd8110
+
+--- origsrc/evolution-data-server-3.20.6/addressbook/libebook/e-book-client-cursor.c	2016-11-30 07:16:04.000000000 -0600
++++ src/evolution-data-server-3.20.6/addressbook/libebook/e-book-client-cursor.c	2018-02-15 19:30:24.659749000 -0600
+@@ -56,9 +56,8 @@
+  * In the following example we create a typical cursor sorted with
+  * %E_CONTACT_FAMILY_NAME as the primary sort key and %E_CONTACT_GIVEN_NAME
+  * as a tie breaker.
+- * <informalexample>
+- *   <programlisting>
+- *     <![CDATA[EBookClientCursor *cursor = NULL;
++ * |[
++ *     EBookClientCursor *cursor = NULL;
+  *     EContactField sort_fields[] = { E_CONTACT_FAMILY_NAME, E_CONTACT_GIVEN_NAME };
+  *     EBookCursorSortType sort_types[] = { E_BOOK_CURSOR_SORT_ASCENDING, E_BOOK_CURSOR_SORT_ASCENDING };
+  *     GError *error = NULL;
+@@ -72,8 +71,7 @@
+  *                                        NULL,        // GCancellable
+  *                                        &error)) {
+  *             // Now we have a cursor ...
+- *     }]]></programlisting>
+- * </informalexample>
++ * ]|
+  * </para>
+  * <para>
+  * Sort order is immutable, if you need to browse content in a different
+@@ -191,9 +189,8 @@
+  * such as determining "Forward" / "Back" button sensitivity
+  * in a browser interface, or displaying some indication
+  * of the view window's position in the full contact list.
+- * <informalexample>
+- *   <programlisting>
+- *     <![CDATA[gint position, total;
++ * |[
++ *     gint position, total;
+  *     gdouble percent;
+  *
+  *     // Fetch the position & total
+@@ -210,8 +207,8 @@
+  *     // Let the user know the percentage of contacts in the list
+  *     // which are positioned before the view position (the
+  *     // percentage of the addressbook which the user has seen so far).
+- *     update_percentage_of_list_browsed (user_interface, percent);]]></programlisting>
+- * </informalexample>
++ *     update_percentage_of_list_browsed (user_interface, percent);
++ * ]|
+  * </para>
+  * <para>
+  * These total and position values are guaranteed to always be coherent, they are
+@@ -260,9 +257,8 @@
+  * Iterating through the contact list is done with e_book_client_cursor_step(), this
+  * function allows one to move the cursor and fetch the results following the current
+  * cursor position.
+- * <informalexample>
+- *   <programlisting>
+- *     <![CDATA[GError *error = NULL;
++ * |[
++ *     GError *error = NULL;
+  *     GSList *results = NULL;
+  *     gint n_results;
+  *
+@@ -312,8 +308,7 @@
+  *         // the end of the list was reached. The next attempt to
+  *         // move the cursor in the same direction will result in
+  *         // an E_CLIENT_ERROR_QUERY_REFUSED error.
+- *       }]]></programlisting>
+- * </informalexample>
++ * ]|
+  * In the above example we chose %E_BOOK_CURSOR_ORIGIN_CURRENT as our #EBookCursorOrigin so the above
+  * call will traverse 10 contacts following the cursor's current position. One can also choose the
+  * %E_BOOK_CURSOR_ORIGIN_BEGIN or %E_BOOK_CURSOR_ORIGIN_END origin to start at the beginning or end
+@@ -377,9 +372,8 @@
+  * to navigate to a specific letter in the results. To set the cursor's position
+  * directly before any results starting with a specific letter, one can use
+  * e_book_client_cursor_set_alphabetic_index().
+- * <informalexample>
+- *   <programlisting>
+- *     <![CDATA[GError *error = NULL;
++ * |[
++ *     GError *error = NULL;
+  *     gint index = currently_selected_index (user_interface);
+  *
+  *     // At this point 'index' must be a numeric value corresponding
+@@ -405,8 +399,7 @@
+  *           }
+  *
+  *         g_clear_error (&error);
+- *       }]]></programlisting>
+- * </informalexample>
++ * ]|
+  * After setting the alphabetic index successfully, you can go ahead
+  * and use e_book_client_cursor_step() to load some contacts at the
+  * beginning of the given letter.
+@@ -430,9 +423,8 @@
+  * One can determine the appropriate index for a given #EContact by calling
+  * e_book_client_cursor_get_contact_alphabetic_index() after refreshing
+  * the currently displayed contacts in a view.
+- * <informalexample>
+- *   <programlisting>
+- *     <![CDATA[EContact *contact;
++ * |[
++ *     EContact *contact;
+  *     const gchar * const *alphabet;
+  *     gint index;
+  *
+@@ -447,8 +439,8 @@
+  *                                                   NULL, NULL, NULL);
+  *
+  *     // Update label in user interface
+- *     set_alphabetic_position_feedback_text (user_interface, alphabet[index]);]]></programlisting>
+- * </informalexample>
++ *     set_alphabetic_position_feedback_text (user_interface, alphabet[index]);
++ * ]|
+  * </para>
+  * </refsect2>
+  *
+--- origsrc/evolution-data-server-3.20.6/camel/camel-object-bag.c	2016-11-30 07:16:05.000000000 -0600
++++ src/evolution-data-server-3.20.6/camel/camel-object-bag.c	2018-02-15 19:27:40.929405400 -0600
+@@ -528,12 +528,10 @@ camel_object_bag_rekey (CamelObjectBag *
+  * Returns a #GPtrArray of all the objects in the bag.  The caller owns
+  * both the array and the object references, so to free the array use:
+  *
+- * <informalexample>
+- *   <programlisting>
++ * |[
+  *     g_ptr_array_foreach (array, g_object_unref, NULL);
+  *     g_ptr_array_free (array, TRUE);
+- *   </programlisting>
+- * </informalexample>
++ * ]|
+  *
+  * Returns: (element-type GObject) (transfer full): an array of objects in @bag
+  **/
+--- origsrc/evolution-data-server-3.20.6/libedataserver/e-data-server-util.c	2016-11-30 07:56:53.000000000 -0600
++++ src/evolution-data-server-3.20.6/libedataserver/e-data-server-util.c	2018-02-15 19:27:08.299273100 -0600
+@@ -633,8 +633,7 @@ e_util_utf8_normalize (const gchar *str)
+  * Admittedly, the function semantics are a little awkward.  The example
+  * below illustrates the easiest way to cope with the @gdbus_str argument:
+  *
+- * <informalexample>
+- *   <programlisting>
++ * |[
+  *     const gchar *trusted_utf8;
+  *     gchar *allocated = NULL;
+  *
+@@ -646,8 +645,7 @@ e_util_utf8_normalize (const gchar *str)
+  *
+  *     g_free (allocated);
+  *     allocated = NULL;
+- *   </programlisting>
+- * </informalexample>
++ * ]|
+  *
+  * Returns: a valid UTF-8 string
+  *
+--- origsrc/evolution-data-server-3.20.6/libedataserver/e-extensible.c	2016-11-30 07:16:05.000000000 -0600
++++ src/evolution-data-server-3.20.6/libedataserver/e-extensible.c	2018-02-15 19:26:34.753860500 -0600
+@@ -27,23 +27,20 @@
+  * 1. Add the #EExtensible interface when registering the #GType.
+  *    There are no methods to implement.
+  *
+- * <informalexample>
+- * <programlisting>
++ * |[
+  * #include <libedataserver/libedataserver.h>
+  *
+  * G_DEFINE_TYPE_WITH_CODE (
+  *         ECustomWidget, e_custom_widget, GTK_TYPE_WIDGET,
+  *         G_IMPLEMENT_INTERFACE (E_TYPE_EXTENSIBLE, NULL))
+- * </programlisting>
+- * </informalexample>
++ * ]|
+  *
+  * 2. Load extensions for the class at some point during #GObject
+  *    initialization.  Generally this should be done toward the end of
+  *    the initialization code, so extensions get a fully initialized
+  *    object to work with.
+  *
+- * <informalexample>
+- * <programlisting>
++ * |[
+  * static void
+  * e_custom_widget_constructed (ECustomWidget *widget)
+  * {
+@@ -51,8 +48,7 @@
+  *
+  *         e_extensible_load_extensions (E_EXTENSIBLE (widget));
+  * }
+- * </programlisting>
+- * </informalexample>
++ * ]|
+  **/
+ 
+ #ifdef HAVE_CONFIG_H

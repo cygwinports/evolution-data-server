@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="evolution-data-server"
 VERSION=3.20.6
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
@@ -18,8 +18,8 @@ PATCH_URI="
 	3.12-link-cxx.patch
 	3.20-libedbus-private.patch
 	3.20-webkit-dep.patch
+	3.20-gtk-doc.patch
 "
-#	3.18-libedbus-private.patch
 
 DISTCLEANFILES="*/*/*.gir"
 
@@ -74,6 +74,7 @@ libedataserver1_2_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
 libedataserver1_2_doc_CATEGORY="Doc"
 libedataserver1_2_doc_SUMMARY="API docs for ${SUMMARY} libraries"
 libedataserver1_2_doc_CONTENTS="usr/share/gtk-doc/"
+PKG_IGNORE="usr/lib/systemd/"
 
 CYGCONF_ARGS="
 	--disable-glibtest
