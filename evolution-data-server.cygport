@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="evolution-data-server"
 VERSION=3.20.6
-RELEASE=2
+RELEASE=3
 CATEGORY="Libs"
 SUMMARY="GNOME PIM data server"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for
@@ -76,6 +76,7 @@ libedataserver1_2_doc_SUMMARY="API docs for ${SUMMARY} libraries"
 libedataserver1_2_doc_CONTENTS="usr/share/gtk-doc/"
 PKG_IGNORE="usr/lib/systemd/"
 
+CPPFLAGS+=" -DU_USING_ICU_NAMESPACE=1"
 CYGCONF_ARGS="
 	--disable-glibtest
 	--enable-smime
